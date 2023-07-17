@@ -1,0 +1,223 @@
+﻿@model DATT.DAL.THONG_TIN_SAN_PHAM
+
+@{
+    ViewBag.Title = "Chi tiết thông tin sản phẩm";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAN_PHAM.TEN_SAN_PHAM)
+        </dd>
+
+        <dt>
+            Xuất xứ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XUAT_XU)
+        </dd>
+
+        <dt>
+            Kích thước
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KICH_THUOC)
+        </dd>
+
+        <dt>
+            Công nghệ màn hình
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONG_NGHE_MAN_HINH)
+        </dd>
+
+        <dt>
+            Camera sau
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAMERA_SAU)
+        </dd>
+
+        <dt>
+            Camera trước
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAMERA_TRUOC)
+        </dd>
+
+        <dt>
+            Chip
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHIP)
+        </dd>
+
+        <dt>
+            RAM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAM)
+        </dd>
+
+        <dt>
+            Bộ nhứo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BO_NHO)
+        </dd>
+
+        <dt>
+            Pin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PIN)
+        </dd>
+
+        <dt>
+            Thẻ sim
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THE_SIM)
+        </dd>
+
+        <dt>
+            Hệ điều hành
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HE_DIEU_HANH)
+        </dd>
+
+        <dt>
+            Độ phân giải
+
+        <dd>
+            @Html.DisplayFor(model => model.DO_PHAN_GIAI)
+        </dd>
+
+        <dt>
+            Tần số quét
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAN_SO_QUET)
+        </dd>
+
+        <dt>
+            GPU
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GPU)
+        </dd>
+
+        <dt>
+            Cổng kết nối
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONG)
+        </dd>
+
+        <dt>
+            Hổ trợ mạng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HO_TRO_MANG)
+        </dd>
+
+        <dt>
+            Wifi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WI_FI)
+        </dd>
+
+        <dt>
+            Bluetooth
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BLUETOOTH)
+        </dd>
+
+        <dt>
+            Kích thước màn hình
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KICH_THUOC_MAN_HINH)
+        </dd>
+
+        <dt>
+            Trọng lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRONG_LUONG)
+        </dd>
+
+        <dt>
+            Chất liệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHAT_LIEU)
+        </dd>
+
+        <dt>
+            Cảm biến vân tay
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CAM_BIEN_VAN_TAY)
+        </dd>
+
+        <dt>
+            Tính năng đặc biệt
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TINH_NANG_DAC_BIET)
+        </dd>
+
+        <dt>
+            Số khe RAM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_KHE_RAM)
+        </dd>
+
+        <dt>
+            Thời điểm ra mắt
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THOI_DIEM_RA_MAT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TTSP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

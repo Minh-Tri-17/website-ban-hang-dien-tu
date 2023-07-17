@@ -1,0 +1,184 @@
+﻿@model IEnumerable<DATT.DAL.THONG_TIN_SAN_PHAM>
+
+@{
+    ViewBag.Title = "Quản lý thông tin sản phẩm";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<p>
+    <a href="@Url.Action("Create", "THONG_TIN_SAN_PHAM")"><i class="fa-solid fa-plus"></i> Thêm</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Xuất xứ
+        </th>
+        <th>
+            Kích thước
+        </th>
+        <th>
+            Công nghệ màn hình
+        </th>
+        <th>
+            Camera sau
+        </th>
+        <th>
+            Camera trước
+        </th>
+        <th>
+            Chip
+        </th>
+        <th>
+            RAM
+        </th>
+        <th>
+            BỘ nhớ
+        </th>
+        <th>
+            Pin
+        </th>
+        <th>
+            Thẻ sim
+        </th>
+        <th>
+            Hệ điều hành
+        </th>
+        <th>
+            Độ phân giải
+        </th>
+        <th>
+            Tần số quét
+        </th>
+        <th>
+            GPU
+        </th>
+        <th>
+            Cổng kết nối
+        </th>
+        <th>
+            Hổ trợ mạng
+        </th>
+        <th>
+            Wifi
+        </th>
+        <th>
+            Bluetooth
+        </th>
+        <th>
+            Kích thước màn hình
+        </th>
+        <th>
+            Trọng lượng
+        </th>
+        <th>
+            Chất liệu
+        </th>
+        <th>
+            Cảm biến vân tay
+        </th>
+        <th>
+            Tính năng đặc biệt
+        </th>
+        <th>
+            Số khe RAM
+        </th>
+        <th>
+            Thời điểm ra mắt
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAN_PHAM.TEN_SAN_PHAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.XUAT_XU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KICH_THUOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CONG_NGHE_MAN_HINH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CAMERA_SAU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CAMERA_TRUOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BO_NHO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THE_SIM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HE_DIEU_HANH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DO_PHAN_GIAI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TAN_SO_QUET)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GPU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HO_TRO_MANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WI_FI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BLUETOOTH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KICH_THUOC_MAN_HINH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TRONG_LUONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHAT_LIEU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CAM_BIEN_VAN_TAY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TINH_NANG_DAC_BIET)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SO_KHE_RAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THOI_DIEM_RA_MAT)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "THONG_TIN_SAN_PHAM", new { id = item.ID_TTSP })"><i class="fa-solid fa-pen"></i></a>
+                <a href="@Url.Action("Details", "THONG_TIN_SAN_PHAM", new { id = item.ID_TTSP })"><i class="fa-solid fa-circle-info"></i></a>
+                <a href="@Url.Action("Delete", "THONG_TIN_SAN_PHAM", new { id = item.ID_TTSP })"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

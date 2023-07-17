@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="branch"></div>
+<main>
+    <section class="product-order">
+        <article>
+            <div><i class="fa-solid fa-cart-shopping"></i>Chọn sản phẩm</div>
+            <div>-----</div>
+            <div><i class="fa-solid fa-address-card"></i>Thông tin khách hàng</div>
+            <div>-----</div>
+            <div><i class="fa-solid fa-box-open"></i>Hoàn thành</div>
+        </article>
+        <article>
+            <h3 id="back-cart"><a href="~/GioHang/GioHang">Trở về</a></h3>
+            <h3>Đặt hàng</h3>
+        </article>
+        <article>
+            <h3>Thông tin khách hàng</h3>
+            <form method="post">
+                <input type="text" name="Hoten" placeholder="Họ và tên (bắt buộc)">
+                <input type="number" name="SDT" placeholder="Số điện thoại (bắt buộc)" max="10">
+                <input type="email" name="Email" placeholder="Email (bắt buộc)">
+                <input type="text" name="Diachi" placeholder="Địa chỉ (bắt buộc)">
+                <input type="submit" id="order" value="ĐẶT HÀNG" class="btn">
+            </form>
+        </article>
+    </section>
+</main>
+<section class="bottom-bar">
+    <article>
+        <div>
+            <h3>Tổng tiền tạm tính</h3>
+            <p>
+                @if (ViewBag.loadTT == null)
+                {
+                    ViewBag.loadTT = 0;
+                }
+                @string.Format("{0:#,0}", ViewBag.loadTT) đ
+            </p>
+        </div>
+        <div>
+            <a href="~/GioHang/DaDat">CÁC SẢN PHẨM ĐÃ ĐẶT</a>
+            <a href="~/TrangChu/TrangChu">CHỌN THÊM SẢN PHẨM KHÁC</a>
+        </div>
+    </article>
+</section>
+<p id="scroll-top">Đầu trang</p>
+<script src="~/Public/JS/GioHang.js"></script>

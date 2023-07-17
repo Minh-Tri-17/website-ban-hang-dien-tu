@@ -1,0 +1,35 @@
+﻿@model DATT.DAL.TIN_TUC
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="branch"></div>
+<main>
+    <section class="blog">
+        <article class="link-blog">
+            <ul>
+                @foreach (var item in ViewBag.loadTT)
+                {
+                    <li>
+                        <a href="~/TrangChu/Blog?id=@item.ID_DMB">
+                            <img src="~/Public/Images/ImagesNews/@item.ANH"
+                                 alt="">@item.TIEU_DE
+                            </a>
+                        </li>
+                    }
+            </ul>
+        </article>
+        <article class="content-blog">
+            <div><img src="~/Public/Images/ImagesNews/@Model.ANH" alt=""></div>
+            <div>
+                <div>
+                    <h2>@Model.TIEU_DE</h2>
+                    @Html.Raw(Model.NOI_DUNG)
+                </div>
+            </div>
+        </article>
+    </section>
+    <p id="scroll-top">Đầu trang</p>
+</main>
+

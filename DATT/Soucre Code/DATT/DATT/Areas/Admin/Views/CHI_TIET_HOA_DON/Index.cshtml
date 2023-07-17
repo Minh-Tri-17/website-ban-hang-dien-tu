@@ -1,0 +1,74 @@
+﻿@model IEnumerable<DATT.DAL.CHI_TIET_HOA_DON>
+
+@{
+    ViewBag.Title = "Quản lý đơn đặt hàng";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Tên khách hàng
+        </th>
+        <th>
+           Địa chỉ
+        </th>
+        <th>
+           Số điện thoại
+        </th>
+        <th>
+            Sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+        <th>
+           Ngày đặt
+        </th>
+        <th>
+            Trạng thái giao hàng
+        </th>
+        <th>
+          
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACH_HANG.TEN_KHACH_HANG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACH_HANG.DIA_CHI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACH_HANG.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAN_PHAM.TEN_SAN_PHAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SO_LUONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TONG_TIEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOA_DON.NGAY_XUAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOA_DON.TRANG_THAI_GIAO)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "CHI_TIET_HOA_DON", new { id = item.ID_HD })"><i class="fa-solid fa-pen"></i></a>
+                <a href="@Url.Action("Details", "CHI_TIET_HOA_DON", new { id = item.ID_CTHD })"><i class="fa-solid fa-circle-info"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,77 @@
+﻿@model List<DATT.Models.ThongTinGioHang>
+@{
+    ViewBag.Title = "DaDat";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="branch"></div>
+<main>
+    <section class="product-cart">
+        <article>
+            <div><i class="fa-solid fa-cart-shopping"></i>Chọn sản phẩm</div>
+            <div>-----</div>
+            <div><i class="fa-solid fa-address-card"></i>Thông tin khách hàng</div>
+            <div>-----</div>
+            <div><i class="fa-solid fa-box-open"></i>Hoàn thành</div>
+        </article>
+        <article>
+            <h3><a href="~/TrangChu/TrangChu">Trở về</a></h3>
+            <h3>Đơn đặt hàng</h3>
+        </article>
+        @{ var count = 0;}
+        @foreach (var item in Model)
+        {
+            if (count < 1)
+            {
+                <article class="product-ordered">
+                    <h3>@item.TEN_KHACH_HANG</h3>
+                    <h3>@item.DIA_CHI</h3>
+                    <h3>@item.SDT</h3>
+                    <h3>@item.EMAIL</h3>
+                </article>
+            }
+            count += 1;
+        }
+
+        @foreach (var item in Model)
+        {
+            <article>
+                <div class="img-product-cart">
+                    <img src="~/Public/Images/ImagesProduct/@item.ANH"
+                         alt="ảnh">
+                </div>
+                <div class="info-product-cart">
+                    <div>
+                        <h3>@item.TEN_SAN_PHAM</h3>
+                    </div>
+                    <div>
+                        <div>
+                            <p>@string.Format("{0:#,0}", item.GIA) đ</p>
+                            <p>@item.GIAM_GIA</p>
+                        </div>
+                        <h2>@item.SO_LUONG</h2>
+                    </div>
+                </div>
+            </article>
+        }
+    </section>
+</main>
+<section class="bottom-bar">
+    <article>
+        <div>
+            <h3>Tổng tiền tạm tính</h3>
+            <p>
+                @if (ViewBag.loadTT == null)
+                {
+                    ViewBag.loadTT = 0;
+                }
+                @string.Format("{0:#,0}", ViewBag.loadTT) đ
+            </p>
+        </div>
+        <div>
+            <a href="~/TrangChu/TrangChu">CHỌN THÊM SẢN PHẨM KHÁC</a>
+        </div>
+    </article>
+</section>
+<p id="scroll-top">Đầu trang</p>
+

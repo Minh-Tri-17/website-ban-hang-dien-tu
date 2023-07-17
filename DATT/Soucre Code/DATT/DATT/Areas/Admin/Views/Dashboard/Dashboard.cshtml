@@ -1,0 +1,186 @@
+﻿@model DATT.DAL.HOA_DON
+@{
+    ViewBag.Title = "Tổng quát";
+    ViewBag.section = "dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<article class="info-public">
+    <div>
+        <div>
+            <img src="~/Public/Images/ImagesPublic/new-product.png" alt="">
+            <p>@string.Format("{0:#,0}", ViewBag.loadTSP)</p>
+        </div>
+        <div>
+            <p>TỔNG SẢN PHẨM</p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img src="~/Public/Images/ImagesPublic/money-bag.png" alt="">
+            <p>@string.Format("{0:#,0}", ViewBag.loadTT) đ</p>
+        </div>
+        <div>
+            <p>TỔNG TIỀN BÁN</p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img src="~/Public/Images/ImagesPublic/bill.png" alt="">
+            <p>@string.Format("{0:#,0}", ViewBag.loadTHD)</p>
+        </div>
+        <div>
+            <p>TỔNG HÓA ĐƠN</p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <img src="~/Public/Images/ImagesPublic/client.png" alt="">
+            <p>@string.Format("{0:#,0}", ViewBag.loadTKH)</p>
+        </div>
+        <div>
+            <p>TỔNG KHÁCH HÀNG</p>
+        </div>
+    </div>
+</article>
+<article class="chart-day">
+    <canvas id="chartday"></canvas>
+</article>
+<article class="chart-month">
+    <div>
+        <canvas id="charttype"></canvas>
+    </div>
+    <div><canvas id="chartmonth"></canvas></div>
+</article>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+<script type="text/javascript">
+     //biểu đồ thống kê
+    var label1 = [];
+    var values1 = [];
+    @foreach(var item in ViewBag.loadThang)
+            {
+                @:label1.push("Tháng @item.THANG")
+                @:values1.push(@item.DANH_THU);
+            }
+    function chartMonth() {
+        const data = {
+            labels: label1,
+            datasets: [
+                {
+                    label: "Doanh thu theo tháng",
+                    data: values1,
+                    backgroundColor: [
+                        "rgba(255, 99, 132, 0.2)",
+                        "rgba(255, 159, 64, 0.2)",
+                        "rgba(255, 205, 86, 0.2)",
+                        "rgba(75, 192, 192, 0.2)",
+                        "rgba(54, 162, 235, 0.2)",
+                        "rgba(153, 102, 255, 0.2)",
+                        "rgba(201, 203, 207, 0.2)",
+                        "rgba(255, 99, 132, 0.2)",
+                        "rgba(255, 159, 64, 0.2)",
+                        "rgba(255, 205, 86, 0.2)",
+                        "rgba(75, 192, 192, 0.2)",
+                        "rgba(54, 162, 235, 0.2)",
+                    ],
+                    borderColor: [
+                        "rgb(255, 99, 132)",
+                        "rgb(255, 159, 64)",
+                        "rgb(255, 205, 86)",
+                        "rgb(75, 192, 192)",
+                        "rgb(54, 162, 235)",
+                        "rgb(153, 102, 255)",
+                        "rgb(201, 203, 207)",
+                        "rgb(255, 99, 132)",
+                        "rgb(255, 159, 64)",
+                        "rgb(255, 205, 86)",
+                        "rgb(75, 192, 192)",
+                        "rgb(54, 162, 235)",
+                    ],
+                    borderWidth: 1,
+                },
+            ],
+        };
+
+        const config = {
+            type: "bar",
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        };
+
+        const ctd = document.getElementById("chartday");
+        const chart = new Chart(ctd, config);
+    }
+    chartMonth();
+
+    var label2 = [];
+    var values2 = [];
+    @foreach(var item in ViewBag.loadDanhMuc)
+            {
+                @:label2.push("@item.DANH_MUC");
+                @:values2.push(@item.SO_LUONG_BAN);
+            }
+    function chartType() {
+        const data = {
+            labels: label2,
+            datasets: [
+                {
+                    label: "Số lượng sản phẩm bán: ",
+                    data: values2,
+                    backgroundColor: [
+                        "rgb(255, 99, 132)",
+                        "rgb(75, 192, 192)",
+                        "rgb(255, 205, 86)",
+                    ],
+                },
+            ],
+        };
+
+        const config = {
+            type: "doughnut",
+            data: data,
+        };
+
+        const ctt = document.getElementById("charttype");
+        const chart = new Chart(ctt, config);
+    }
+    chartType();
+
+    var label3 = [];
+    var values3 = [];
+    @foreach(var item in ViewBag.loadNgay)
+            {
+                @:label3.push("Ngày @item.NGAY")
+                @:values3.push(@item.DANH_THU);
+            }
+    function chartDay() {
+        const data = {
+            labels: label3,
+            datasets: [
+                {
+                    label: "Doanh thu theo ngày",
+                    data: values3,
+                    fill: false,
+                    borderColor: "rgb(255, 205, 86)",
+                    tension: 0.1,
+                },
+            ],
+        };
+
+        const config = {
+            type: "line",
+            data: data,
+        };
+
+        const ctm = document.getElementById("chartmonth");
+        const chart = new Chart(ctm, config);
+    }
+    chartDay();
+</script>

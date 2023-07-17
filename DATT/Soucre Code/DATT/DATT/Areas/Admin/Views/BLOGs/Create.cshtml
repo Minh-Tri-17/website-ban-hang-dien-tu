@@ -1,0 +1,63 @@
+﻿@model DATT.DAL.BLOG
+
+@{
+    ViewBag.Title = "Thêm tin tức";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <h3>Sản phẩm</h3>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ID_SP, ViewBag.ID_SP as SelectList, "-- Chọn sản phẩm --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_SP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Ảnh</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ANH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ANH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Tiêu đề</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TIEU_DE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TIEU_DE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Nội dung</h3>
+            <div class="col-md-10">
+                <textarea name="NOI_DUNG" id="inputCKEditor"></textarea>
+                @Html.ValidationMessageFor(model => model.NOI_DUNG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Plugin/ckeditor/ckeditor.js"></script>
+<script>
+    //ckeditor
+    CKEDITOR.replace("inputCKEditor");
+</script>

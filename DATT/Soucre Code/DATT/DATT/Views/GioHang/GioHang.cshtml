@@ -1,0 +1,73 @@
+﻿@model List<DATT.Models.ThongTinGioHang>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="branch"></div>
+<main>
+    <section class="product-cart">
+        <article>
+            <div><i class="fa-solid fa-cart-shopping"></i>Chọn sản phẩm</div>
+            <div>-----</div>
+            <div><i class="fa-solid fa-address-card"></i>Thông tin khách hàng</div>
+            <div>-----</div>
+            <div><i class="fa-solid fa-box-open"></i>Hoàn thành</div>
+        </article>
+        <article>
+            <h3><a href="~/TrangChu/TrangChu">Trở về</a></h3>
+            <h3>Giỏ hàng</h3>
+        </article>
+        @foreach (var item in Model)
+        {
+            <article>
+                <div class="img-product-cart">
+                    <img src="~/Public/Images/ImagesProduct/@item.ANH"
+                         alt="ảnh">
+                </div>
+                <div class="info-product-cart">
+                    <div>
+                        <h3>@item.TEN_SAN_PHAM</h3>
+                        <a href="~/GioHang/RemoveGioHang?id=@item.ID_CTHD"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                    <div>
+                        <div>
+                            <p>@string.Format("{0:#,0}", item.GIA) đ</p>
+                            <p>@item.GIAM_GIA</p>
+                        </div>
+                        <div>
+                            @using (Html.BeginForm("AddSL", "GioHang"))
+                            {
+                                <input type="number" name="SL" min="1" max="@item.SO_LUONG_TON">
+                                <input type="hidden" value="@item.ID_CTHD" name="IDCT">
+                                <button type="submit" class="btn">Thêm</button>
+                            }
+                        </div>
+                        <h2>@item.SO_LUONG</h2>
+                    </div>
+                </div>
+            </article>
+        }
+    </section>
+</main>
+<section class="bottom-bar">
+    <article>
+        <div>
+            <h3>Tổng tiền tạm tính</h3>
+            <p>
+                @if (ViewBag.loadTT == null)
+                {
+                    ViewBag.loadTT = 0;
+                }
+                @string.Format("{0:#,0}", ViewBag.loadTT) đ
+            </p>
+    </div>
+    <div>
+        <a href="~/GioHang/DatHang" id="order">TIẾN HÀNH ĐẶT HÀNG</a>
+        <a href="~/TrangChu/TrangChu">CHỌN THÊM SẢN PHẨM KHÁC</a>
+    </div>
+</article>
+</section>
+<p id="scroll-top">Đầu trang</p>
+<script src="~/Public/JS/GioHang.js"></script>
+

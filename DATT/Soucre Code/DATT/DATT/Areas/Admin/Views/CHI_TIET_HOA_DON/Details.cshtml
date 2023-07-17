@@ -1,0 +1,79 @@
+﻿@model DATT.DAL.CHI_TIET_HOA_DON
+
+@{
+    ViewBag.Title = "Chi tiết đơn đặt hàng";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SO_LUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SO_LUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TONG_TIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TONG_TIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRANG_THAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRANG_THAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACCOUNT.USERNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACCOUNT.USERNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHI_NHANH.TEN_CHI_NHANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHI_NHANH.TEN_CHI_NHANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACH_HANG.TEN_KHACH_HANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACH_HANG.TEN_KHACH_HANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOA_DON.TRANG_THAI_GIAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOA_DON.TRANG_THAI_GIAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SAN_PHAM.THUONG_HIEU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAN_PHAM.THUONG_HIEU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,91 @@
+﻿@model DATT.DAL.SAN_PHAM
+
+@{
+    ViewBag.Title = "Chỉnh sửa sản phẩm";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID_SP)
+
+    <div class="form-group">
+        <h3>Thương hiệu</h3>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.THUONG_HIEU, ViewBag.loadTH as SelectList, "-- Chọn thương hiệu --", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.THUONG_HIEU, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Danh mục</h3>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.THUONG_HIEU, ViewBag.loadDM as SelectList, "-- Chọn thương hiệu --", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DANH_MUC, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Tên sản phẩm</h3>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TEN_SAN_PHAM, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TEN_SAN_PHAM, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Thông tin tổng quát</h3>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.THONG_TIN_TONG_QUAT, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.THONG_TIN_TONG_QUAT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Giá</h3>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GIA, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GIA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Ảnh</h3>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ANH, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ANH, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Giảm giá</h3>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GIAM_GIA, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GIAM_GIA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h3>Số lượng tồn</h3>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SO_LUONG_TON, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SO_LUONG_TON, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn">Save</button>
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

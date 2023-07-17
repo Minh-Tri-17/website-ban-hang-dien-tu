@@ -1,0 +1,155 @@
+﻿@model DATT.Models.Account
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div id="loading">
+</div>
+<div class="branch">
+    <div class="branch-user">
+        <div>
+            <p>
+                <i class="fa-solid fa-location-dot"></i> Chi nhánh
+            </p>
+            @foreach (var item in ViewBag.loadCN)
+            {
+                if (item.ID_CN == Int16.Parse(Session["ChiNhanh"].ToString()))
+                {
+                    <p id="branch-main">@item.TEN_CHI_NHANH</p>
+                }
+            }
+        </div>
+        <div class="user">
+            @{ if (Session["User"] == null && Session["IDAcc"] == null)
+                {
+                    Session["User"] = "Xin chào!";
+                    Session["IDAcc"] = 0;
+                    var user = HttpContext.Current.Session["User"].ToString();
+                    <p>@user</p>
+                }
+                else
+                {
+                    var id = HttpContext.Current.Session["IDAcc"].ToString();
+                    var user = HttpContext.Current.Session["User"].ToString();
+                    <p>@user</p>
+                }
+            }
+        </div>
+    </div>
+    <ul class="list-branch">
+        @foreach (var item in ViewBag.loadCN)
+        {
+            <li>
+                <a href="~/TrangChu/ChiNhanh?idCN=@item.ID_CN">@item.TEN_CHI_NHANH</a>
+                <div class="circle"></div>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="menu-and-slide">
+    <div id="logo-menu"><i class="fa-sharp fa-solid fa-bars"></i></div>
+    <nav>
+        <ul>
+            @foreach (var item in ViewBag.loadDM)
+            {
+                <li>
+                    <div>
+                        <a href="~/SanPham/SanPham?DM=@item">@item</a>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                    <div class="menu-drop-down">
+                        <h3>Chọn theo hãng</h3>
+                        <ul>
+                            @foreach (var item1 in ViewBag.loadTH)
+                            {
+                                if (item1.DANH_MUC == item)
+                                {
+                                    <li><a href="~/SanPham/SanPham?DM=@item&&TH=@item1.THUONG_HIEU">@item1.THUONG_HIEU</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </li>
+            }
+        </ul>
+    </nav>
+    <div class="slides">
+        <div class="slide-container">
+            <img src="~/Public/Images/ImagesPublic/690x300-sli-14-23890.png" alt="">
+            <img src="~/Public/Images/ImagesPublic/asus-vivolaptop-normal-right-003.png" alt="">
+            <img src="~/Public/Images/ImagesPublic/combo-sli-11700.png" alt="">
+            <img src="~/Public/Images/ImagesPublic/ipad-th4-009.png" alt="">
+            <img src="~/Public/Images/ImagesPublic/note-12-mo-ban-003-sliding-new-004444.png" alt="">
+            <img src="~/Public/Images/ImagesPublic/oppo-sliding-new-moban.png" alt="">
+        </div>
+        <div class="dot-container">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+</div>
+<div id="banner"><img src="~/Public/Images/ImagesPublic/banner-special-desktop-pkchaohe.png" alt=""></div>
+<main>
+    @foreach (var item1 in ViewBag.loadDM)
+    {
+        <h2>@item1</h2>
+        <section class="product-container">
+            @{var count = 0;}
+            @foreach (var item in ViewBag.loadSP)
+            {
+                if (item1 == item.DANH_MUC && count < 5)
+                {
+                    <a href="~/SanPham/ChiTietSanPham?id=@item.ID_SP" class="product">
+                        <img src="~/Public/Images/ImagesProduct/@item.ANH" alt="">
+                        <h3>@item.TEN_SAN_PHAM</h3>
+                        <div>
+                            <p>@string.Format("{0:#,0}", item.GIA) ₫</p>
+                            <p>@item.GIAM_GIA</p>
+                        </div>
+                        <div>
+                            @foreach (var itemDG in ViewBag.loadDDG)
+                            {
+                                if (item.ID_SP == itemDG.ID_SP && itemDG.DIEM == 5 && itemDG.KIEM_TRA == "true")
+                                {
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                }
+                            }
+                        </div>
+                    </a>
+                    count += 1;
+                }
+            }
+        </section>
+    }
+    <h2>CHUYỂN TRANG THƯƠNG HIỆU</h2>
+    <section class="trademark-container">
+        <a href="~/SanPham/SanPham?TH=Asus" class="trademark"><img src="~/Public/Images/ImagesPublic/SIS asus.png" alt=""></a>
+        <a href="~/SanPham/SanPham?TH=xiaomi" class="trademark"><img src="~/Public/Images/ImagesPublic/xiaomi.png" alt=""></a>
+        <a href="~/SanPham/SanPham?TH=Apple" class="trademark"><img src="~/Public/Images/ImagesPublic/th-hieu-apple-0013.png" alt=""></a>
+        <a href="~/SanPham/SanPham?TH=samsung" class="trademark"><img src="~/Public/Images/ImagesPublic/th-hieu-ss-0013.png" alt=""></a>
+    </section>
+    <h2>TIN CÔNG NGHỆ</h2>
+    <section class="news-container">
+        @foreach (var item in ViewBag.loadTT)
+        {
+            <a href="~/TrangChu/Blog?id=@item.ID_DMB" class="news">
+                <img src="~/Public/Images/ImagesNews/@item.ANH" alt="">
+                <h3>
+                    @item.TIEU_DE
+                </h3>
+            </a>
+        }
+    </section>
+    <p id="scroll-top">Đầu trang</p>
+</main>
+<script src="~/Public/JS/TrangChu.js"></script>
+

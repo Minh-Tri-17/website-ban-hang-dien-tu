@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DATTModelStoreContainer" CdmEntityContainer="DATTEntities">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="DATTModel.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="ID_ACC" ColumnName="ID_ACC" />
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
+          <ScalarProperty Name="TINH_TRANG_THONG_TIN" ColumnName="TINH_TRANG_THONG_TIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BLOGs">
+      <EntityTypeMapping TypeName="DATTModel.BLOG">
+        <MappingFragment StoreEntitySet="BLOG">
+          <ScalarProperty Name="ID_DMB" ColumnName="ID_DMB" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="TIEU_DE" ColumnName="TIEU_DE" />
+          <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHI_NHANH">
+      <EntityTypeMapping TypeName="DATTModel.CHI_NHANH">
+        <MappingFragment StoreEntitySet="CHI_NHANH">
+          <ScalarProperty Name="ID_CN" ColumnName="ID_CN" />
+          <ScalarProperty Name="TEN_CHI_NHANH" ColumnName="TEN_CHI_NHANH" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHI_TIET_HOA_DON">
+      <EntityTypeMapping TypeName="DATTModel.CHI_TIET_HOA_DON">
+        <MappingFragment StoreEntitySet="CHI_TIET_HOA_DON">
+          <ScalarProperty Name="ID_CTHD" ColumnName="ID_CTHD" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+          <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+          <ScalarProperty Name="ID_ACC" ColumnName="ID_ACC" />
+          <ScalarProperty Name="THANH_TIEN" ColumnName="THANH_TIEN" />
+          <ScalarProperty Name="SO_TIEN_NHAN" ColumnName="SO_TIEN_NHAN" />
+          <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DANH_GIAs">
+      <EntityTypeMapping TypeName="DATTModel.DANH_GIA">
+        <MappingFragment StoreEntitySet="DANH GIA">
+          <ScalarProperty Name="ID_DG" ColumnName="ID_DG" />
+          <ScalarProperty Name="DIEM" ColumnName="DIEM" />
+          <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOA_DON">
+      <EntityTypeMapping TypeName="DATTModel.HOA_DON">
+        <MappingFragment StoreEntitySet="HOA_DON">
+          <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+          <ScalarProperty Name="ID_CN" ColumnName="ID_CN" />
+          <ScalarProperty Name="NGAY_XUAT" ColumnName="NGAY_XUAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACH_HANG">
+      <EntityTypeMapping TypeName="DATTModel.KHACH_HANG">
+        <MappingFragment StoreEntitySet="KHACH_HANG">
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+          <ScalarProperty Name="TEN_KHACH_HANG" ColumnName="TEN_KHACH_HANG" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="LOAI_KHACH_HANG" ColumnName="LOAI_KHACH_HANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHOes">
+      <EntityTypeMapping TypeName="DATTModel.KHO">
+        <MappingFragment StoreEntitySet="KHO">
+          <ScalarProperty Name="ID_K" ColumnName="ID_K" />
+          <ScalarProperty Name="ID_CN" ColumnName="ID_CN" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="SL_TON" ColumnName="SL_TON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHAP_HANG">
+      <EntityTypeMapping TypeName="DATTModel.NHAP_HANG">
+        <MappingFragment StoreEntitySet="NHAP_HANG">
+          <ScalarProperty Name="ID_NH" ColumnName="ID_NH" />
+          <ScalarProperty Name="ID_CN" ColumnName="ID_CN" />
+          <ScalarProperty Name="ID_K" ColumnName="ID_K" />
+          <ScalarProperty Name="TEN_NN" ColumnName="TEN_NN" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NGAY_NHAP" ColumnName="NGAY_NHAP" />
+          <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
+          <ScalarProperty Name="TINH_TRANG" ColumnName="TINH_TRANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SAN_PHAM">
+      <EntityTypeMapping TypeName="DATTModel.SAN_PHAM">
+        <MappingFragment StoreEntitySet="SAN_PHAM">
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="THUONG_HIEU" ColumnName="THUONG_HIEU" />
+          <ScalarProperty Name="DANH_MUC" ColumnName="DANH_MUC" />
+          <ScalarProperty Name="TEN_SAN_PHAM" ColumnName="TEN_SAN_PHAM" />
+          <ScalarProperty Name="GIA" ColumnName="GIA" />
+          <ScalarProperty Name="ANH" ColumnName="ANH" />
+          <ScalarProperty Name="GIAM_GIA" ColumnName="GIAM_GIA" />
+          <ScalarProperty Name="TINH_TRANG_TON_KHO" ColumnName="TINH_TRANG_TON_KHO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DATTModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONG_TIN_SAN_PHAM">
+      <EntityTypeMapping TypeName="DATTModel.THONG_TIN_SAN_PHAM">
+        <MappingFragment StoreEntitySet="THONG_TIN_SAN_PHAM">
+          <ScalarProperty Name="ID_TTSP" ColumnName="ID_TTSP" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="XUAT_XU" ColumnName="XUAT_XU" />
+          <ScalarProperty Name="KICH_THUOC" ColumnName="KICH_THUOC" />
+          <ScalarProperty Name="CONG_NGHE_MAN_HINH" ColumnName="CONG_NGHE_MAN_HINH" />
+          <ScalarProperty Name="CAMERA_SAU" ColumnName="CAMERA_SAU" />
+          <ScalarProperty Name="CAMERA_TRUOC" ColumnName="CAMERA_TRUOC" />
+          <ScalarProperty Name="CHIP" ColumnName="CHIP" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="BO_NHO" ColumnName="BO_NHO" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="THE_SIM" ColumnName="THE_SIM" />
+          <ScalarProperty Name="HE_DIEU_HANH" ColumnName="HE_DIEU_HANH" />
+          <ScalarProperty Name="DO_PHAN_GIAI" ColumnName="DO_PHAN_GIAI" />
+          <ScalarProperty Name="TAN_SO_QUET" ColumnName="TAN_SO_QUET" />
+          <ScalarProperty Name="GPU" ColumnName="GPU" />
+          <ScalarProperty Name="CONG" ColumnName="CONG" />
+          <ScalarProperty Name="HO_TRO_MANG" ColumnName="HO_TRO_MANG" />
+          <ScalarProperty Name="WI_FI" ColumnName="WI_FI" />
+          <ScalarProperty Name="BLUETOOTH" ColumnName="BLUETOOTH" />
+          <ScalarProperty Name="KICH_THUOC_MAN_HINH" ColumnName="KICH_THUOC_MAN_HINH" />
+          <ScalarProperty Name="TRONG_LUONG" ColumnName="TRONG_LUONG" />
+          <ScalarProperty Name="CHAT_LIEU" ColumnName="CHAT_LIEU" />
+          <ScalarProperty Name="CAM_BIEN_VAN_TAY" ColumnName="CAM_BIEN_VAN_TAY" />
+          <ScalarProperty Name="TINH_NANG_DAC_BIET" ColumnName="TINH_NANG_DAC_BIET" />
+          <ScalarProperty Name="SO_KHE_RAM" ColumnName="SO_KHE_RAM" />
+          <ScalarProperty Name="THOI_DIEM_RA_MAT" ColumnName="THOI_DIEM_RA_MAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THONG_TIN_CUA_HANG">
+      <EntityTypeMapping TypeName="DATTModel.THONG_TIN_CUA_HANG">
+        <MappingFragment StoreEntitySet="THONG_TIN_CUA_HANG">
+          <ScalarProperty Name="TEN_CUA_HANG" ColumnName="TEN_CUA_HANG" />
+          <ScalarProperty Name="FB" ColumnName="FB" />
+          <ScalarProperty Name="TIKTOK" ColumnName="TIKTOK" />
+          <ScalarProperty Name="YOUTUBE" ColumnName="YOUTUBE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

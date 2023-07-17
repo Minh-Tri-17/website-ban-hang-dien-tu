@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DATTModelStoreContainer" CdmEntityContainer="DATTEntities">
+    <EntitySetMapping Name="CHI_NHANH">
+      <EntityTypeMapping TypeName="DATTModel.CHI_NHANH">
+        <MappingFragment StoreEntitySet="CHI_NHANH">
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="TEN_CHI_NHANH" ColumnName="TEN_CHI_NHANH" />
+          <ScalarProperty Name="ID_CN" ColumnName="ID_CN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACH_HANG">
+      <EntityTypeMapping TypeName="DATTModel.KHACH_HANG">
+        <MappingFragment StoreEntitySet="KHACH_HANG">
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DIA_CHI" ColumnName="DIA_CHI" />
+          <ScalarProperty Name="TEN_KHACH_HANG" ColumnName="TEN_KHACH_HANG" />
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="THEM_KHACH_VAO_HOA_DON" FunctionName="DATTModel.Store.THEM_KHACH_VAO_HOA_DON" />
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DATTModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHI_TIET_HOA_DON">
+      <EntityTypeMapping TypeName="DATTModel.CHI_TIET_HOA_DON">
+        <MappingFragment StoreEntitySet="CHI_TIET_HOA_DON">
+          <ScalarProperty Name="TRANG_THAI" ColumnName="TRANG_THAI" />
+          <ScalarProperty Name="TONG_TIEN" ColumnName="TONG_TIEN" />
+          <ScalarProperty Name="SO_LUONG" ColumnName="SO_LUONG" />
+          <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+          <ScalarProperty Name="ID_ACC" ColumnName="ID_ACC" />
+          <ScalarProperty Name="ID_CN" ColumnName="ID_CN" />
+          <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="ID_CTHD" ColumnName="ID_CTHD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOA_DON">
+      <EntityTypeMapping TypeName="DATTModel.HOA_DON">
+        <MappingFragment StoreEntitySet="HOA_DON">
+          <ScalarProperty Name="TRANG_THAI_GIAO" ColumnName="TRANG_THAI_GIAO" />
+          <ScalarProperty Name="NGAY_XUAT" ColumnName="NGAY_XUAT" />
+          <ScalarProperty Name="ID_HD" ColumnName="ID_HD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CAP_NHAT_GIAO_HANG" FunctionName="DATTModel.Store.CAP_NHAT_GIAO_HANG" />
+    <EntitySetMapping Name="THONG_TIN_SAN_PHAM">
+      <EntityTypeMapping TypeName="DATTModel.THONG_TIN_SAN_PHAM">
+        <MappingFragment StoreEntitySet="THONG_TIN_SAN_PHAM">
+          <ScalarProperty Name="THOI_DIEM_RA_MAT" ColumnName="THOI_DIEM_RA_MAT" />
+          <ScalarProperty Name="SO_KHE_RAM" ColumnName="SO_KHE_RAM" />
+          <ScalarProperty Name="TINH_NANG_DAC_BIET" ColumnName="TINH_NANG_DAC_BIET" />
+          <ScalarProperty Name="CAM_BIEN_VAN_TAY" ColumnName="CAM_BIEN_VAN_TAY" />
+          <ScalarProperty Name="CHAT_LIEU" ColumnName="CHAT_LIEU" />
+          <ScalarProperty Name="TRONG_LUONG" ColumnName="TRONG_LUONG" />
+          <ScalarProperty Name="KICH_THUOC_MAN_HINH" ColumnName="KICH_THUOC_MAN_HINH" />
+          <ScalarProperty Name="BLUETOOTH" ColumnName="BLUETOOTH" />
+          <ScalarProperty Name="WI_FI" ColumnName="WI_FI" />
+          <ScalarProperty Name="HO_TRO_MANG" ColumnName="HO_TRO_MANG" />
+          <ScalarProperty Name="CONG" ColumnName="CONG" />
+          <ScalarProperty Name="GPU" ColumnName="GPU" />
+          <ScalarProperty Name="TAN_SO_QUET" ColumnName="TAN_SO_QUET" />
+          <ScalarProperty Name="DO_PHAN_GIAI" ColumnName="DO_PHAN_GIAI" />
+          <ScalarProperty Name="HE_DIEU_HANH" ColumnName="HE_DIEU_HANH" />
+          <ScalarProperty Name="THE_SIM" ColumnName="THE_SIM" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="BO_NHO" ColumnName="BO_NHO" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="CHIP" ColumnName="CHIP" />
+          <ScalarProperty Name="CAMERA_TRUOC" ColumnName="CAMERA_TRUOC" />
+          <ScalarProperty Name="CAMERA_SAU" ColumnName="CAMERA_SAU" />
+          <ScalarProperty Name="CONG_NGHE_MAN_HINH" ColumnName="CONG_NGHE_MAN_HINH" />
+          <ScalarProperty Name="KICH_THUOC" ColumnName="KICH_THUOC" />
+          <ScalarProperty Name="XUAT_XU" ColumnName="XUAT_XU" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="ID_TTSP" ColumnName="ID_TTSP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DoanhThuDanhMuc" FunctionName="DATTModel.Store.DoanhThuDanhMuc">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DATTModel.DoanhThuDanhMuc_Result1">
+          <ScalarProperty Name="SO_LUONG_BAN" ColumnName="SO_LUONG_BAN" />
+          <ScalarProperty Name="DANH_MUC" ColumnName="DANH_MUC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DoanhThuNgay" FunctionName="DATTModel.Store.DoanhThuNgay">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DATTModel.DoanhThuNgay_Result1">
+          <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+          <ScalarProperty Name="DANH_THU" ColumnName="DANH_THU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DoanhThuThang" FunctionName="DATTModel.Store.DoanhThuThang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DATTModel.DoanhThuThang_Result1">
+          <ScalarProperty Name="THANG" ColumnName="THANG" />
+          <ScalarProperty Name="DANH_THU" ColumnName="DANH_THU" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="DANH_GIAs">
+      <EntityTypeMapping TypeName="DATTModel.DANH_GIA">
+        <MappingFragment StoreEntitySet="DANH GIA">
+          <ScalarProperty Name="ID_ACC" ColumnName="ID_ACC" />
+          <ScalarProperty Name="KIEM_TRA" ColumnName="KIEM_TRA" />
+          <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
+          <ScalarProperty Name="DIEM" ColumnName="DIEM" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="ID_DG" ColumnName="ID_DG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SAN_PHAM">
+      <EntityTypeMapping TypeName="DATTModel.SAN_PHAM">
+        <MappingFragment StoreEntitySet="SAN_PHAM">
+          <ScalarProperty Name="SO_LUONG_TON" ColumnName="SO_LUONG_TON" />
+          <ScalarProperty Name="GIAM_GIA" ColumnName="GIAM_GIA" />
+          <ScalarProperty Name="ANH" ColumnName="ANH" />
+          <ScalarProperty Name="GIA" ColumnName="GIA" />
+          <ScalarProperty Name="THONG_TIN_TONG_QUAT" ColumnName="THONG_TIN_TONG_QUAT" />
+          <ScalarProperty Name="TEN_SAN_PHAM" ColumnName="TEN_SAN_PHAM" />
+          <ScalarProperty Name="DANH_MUC" ColumnName="DANH_MUC" />
+          <ScalarProperty Name="THUONG_HIEU" ColumnName="THUONG_HIEU" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TAM_TINH" FunctionName="DATTModel.Store.TAM_TINH" />
+    <EntitySetMapping Name="TAI_KHOAN">
+      <EntityTypeMapping TypeName="DATTModel.TAI_KHOAN">
+        <MappingFragment StoreEntitySet="TAI_KHOAN">
+          <ScalarProperty Name="QUYEN" ColumnName="QUYEN" />
+          <ScalarProperty Name="MAT_KHAU" ColumnName="MAT_KHAU" />
+          <ScalarProperty Name="TEN_TAI_KHOAN" ColumnName="TEN_TAI_KHOAN" />
+          <ScalarProperty Name="ID_ACC" ColumnName="ID_ACC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIN_TUC">
+      <EntityTypeMapping TypeName="DATTModel.TIN_TUC">
+        <MappingFragment StoreEntitySet="TIN_TUC">
+          <ScalarProperty Name="NOI_DUNG" ColumnName="NOI_DUNG" />
+          <ScalarProperty Name="TIEU_DE" ColumnName="TIEU_DE" />
+          <ScalarProperty Name="ANH" ColumnName="ANH" />
+          <ScalarProperty Name="ID_SP" ColumnName="ID_SP" />
+          <ScalarProperty Name="ID_DMB" ColumnName="ID_DMB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DATT.DAL.DANH_GIA>
+
+@{
+    ViewBag.Title = "Quản lý đánh giá";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+           Điểm
+        </th>
+        <th>
+           Nội dung
+        </th>
+        <th>
+           Khách hàng
+        </th>
+        <th>
+          Thương hiệu
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIEM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOI_DUNG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ACCOUNT.USERNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SAN_PHAM.THUONG_HIEU)
+        </td>
+        <td>
+            <a href="@Url.Action("Details", "DANH_GIA", new { id = item.ID_DG })"><i class="fa-solid fa-circle-info"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

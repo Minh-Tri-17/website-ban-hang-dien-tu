@@ -1,0 +1,232 @@
+﻿@model DATT.DAL.THONG_TIN_SAN_PHAM
+
+@{
+    ViewBag.Title = "Thêm thông tin sản phẩm";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <h3>Tên sản phẩm</h3>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ID_SP, ViewBag.ID_SP as SelectList, "-- Chọn sản phẩm --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_SP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Xuất xứ</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.XUAT_XU, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.XUAT_XU, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Kích thước</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KICH_THUOC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KICH_THUOC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Công nghệ màn hình</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CONG_NGHE_MAN_HINH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CONG_NGHE_MAN_HINH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Camera sau</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CAMERA_SAU, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CAMERA_SAU, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Camera trước</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CAMERA_TRUOC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CAMERA_TRUOC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Chip</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CHIP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CHIP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>RAM</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RAM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RAM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Bộ nhớ</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BO_NHO, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BO_NHO, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Pin</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PIN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PIN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Thẻ sim</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.THE_SIM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.THE_SIM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Hệ điều hành</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HE_DIEU_HANH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HE_DIEU_HANH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Độ phân giải</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DO_PHAN_GIAI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DO_PHAN_GIAI, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Tần số quét</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TAN_SO_QUET, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TAN_SO_QUET, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>GPU</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GPU, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GPU, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Cổng kết nối</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CONG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CONG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Hổ trợ mạng</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HO_TRO_MANG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HO_TRO_MANG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Wifi</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.WI_FI, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.WI_FI, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Bluetooth</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BLUETOOTH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BLUETOOTH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Kích thước màn hình</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KICH_THUOC_MAN_HINH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KICH_THUOC_MAN_HINH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Trọng lượng</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TRONG_LUONG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TRONG_LUONG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Chất liệu</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CHAT_LIEU, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CHAT_LIEU, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Cảm biến vân tay</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CAM_BIEN_VAN_TAY, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CAM_BIEN_VAN_TAY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>TÍnh năng đặc biệt</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TINH_NANG_DAC_BIET, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TINH_NANG_DAC_BIET, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Số khe RAM</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SO_KHE_RAM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SO_KHE_RAM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Thời điểm ra mắt</h3>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.THOI_DIEM_RA_MAT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.THOI_DIEM_RA_MAT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

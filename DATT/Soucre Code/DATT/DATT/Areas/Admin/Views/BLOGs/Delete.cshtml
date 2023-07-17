@@ -1,0 +1,47 @@
+﻿@model DATT.DAL.BLOG
+
+@{
+    ViewBag.Title = "Xóa tin tức";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANH)
+        </dd>
+
+        <dt>
+            Tiêu đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIEU_DE)
+        </dd>
+
+        <dt>
+            Sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAN_PHAM.TEN_SAN_PHAM)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button type="submit" class="btn">Delete</button>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

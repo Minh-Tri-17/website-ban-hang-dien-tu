@@ -1,0 +1,76 @@
+﻿@model IEnumerable<DATT.DAL.SAN_PHAM>
+
+@{
+    ViewBag.Title = "Quán lý sản phẩm";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<p>
+    <a href="@Url.Action("Create", "SAN_PHAM")"><i class="fa-solid fa-plus"></i> Thêm</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Thương hiệu
+        </th>
+        <th>
+            Danh mục
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Thông tin tổng quét
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Ảnh
+        </th>
+        <th>
+            Giảm giá
+        </th>
+        <th>
+            Số lượng tồn
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.THUONG_HIEU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DANH_MUC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN_SAN_PHAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THONG_TIN_TONG_QUAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GIA)
+            </td>
+            <td>
+                <img src="~/Public/Images/ImagesProduct/@item.ANH" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GIAM_GIA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SO_LUONG_TON)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "SAN_PHAM", new { id = item.ID_SP })"><i class="fa-solid fa-pen"></i></a>
+                <a href="@Url.Action("Details", "SAN_PHAM", new { id = item.ID_SP })"><i class="fa-solid fa-circle-info"></i></a>
+                <a href="@Url.Action("Delete", "SAN_PHAM", new { id = item.ID_SP })"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

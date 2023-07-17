@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Public/CSS/styleAdmin.css">
+    <link rel="stylesheet" href="~/Public/fontawesome-free-6.1.1-web/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <h3>QUẢN LÝ WEBSITE</h3>
+        <menu type="toolbar">
+            <a href="@Url.Action("dashboard","dashboard")">
+            <li>
+                TỔNG QUÁT
+            </li>
+            </a>
+            <a href="@Url.Action("Index","CHI_TIET_HOA_DON")">
+            <li>
+                QUẢN LÝ ĐẶT HÀNG
+            </li>
+            </a>
+            <a href="@Url.Action("Index","SAN_PHAM")">
+            <li>
+                QUẢN LÝ SẢN PHẨM
+            </li>
+            <a href="@Url.Action("Index","THONG_TIN_SAN_PHAM")">
+            <li>
+                QUẢN LÝ THÔNG TIN SẢN PHẨM
+            </li>
+            </a>
+            <a href="@Url.Action("Index","DANH_GIA")">
+            <li>
+                QUẢN LÝ ĐÁNH GIÁ
+            </li>
+            </a>
+            <a href="@Url.Action("Index","KHACH_HANG")">
+            <li>
+                QUẢN LÝ KHÁCH HÀNG
+            </li>
+            </a>
+            <a href="@Url.Action("Index","CHI_NHANH")">
+            <li>
+                QUẢN LÝ CHI NHÁNH
+            </li>
+            </a>
+            <a href="@Url.Action("Index","BLOGs")">
+            <li>
+                QUẢN LÝ TIN TỨC
+            </li>
+            </a>
+            <a href="~/DangNhap/DangNhap">
+            <li>
+                THOÁT
+            </li>
+            </a>
+        </menu>
+    </nav>
+    <header>
+        <h2>@ViewBag.Title</h2>
+        <h2>8:18 PM - 4/27/2023</h2>
+    </header>
+    <main>
+        <section class="@ViewBag.section">
+            @RenderBody()
+        </section>
+    </main>
+
+</body>
+
+<script src="~/Public/JS/QuanTri.js"></script>
+<script src="~/Public/JS/MasterPage.js"></script>
+</html>

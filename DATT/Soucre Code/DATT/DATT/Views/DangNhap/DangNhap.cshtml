@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="~/Public/CSS/styleAccount.css">
+    <link rel="stylesheet" href="~/Public/fontawesome-free-6.1.1-web/css/all.min.css">
+</head>
+<body>
+    <main class="container" id="container">
+        <a href="~/TrangChu/TrangChu">X</a>
+        <section class="form-container register-container">
+            @using (Html.BeginForm("DangKy", "DangNhap"))
+            {
+                <h1>Đăng ký</h1>
+                <h1></h1>
+                <input type="text" placeholder="Tên người dùng" name="user">
+                <input type="password" placeholder="mật khẩu" name="password">
+                <button type="submit">Đăng ký</button>
+            }
+        </section>
+        <section class="form-container login-container">
+            @using (Html.BeginForm("DangNhap", "DangNhap"))
+            {
+                <h1>Đăng nhập</h1>
+                <input type="text" placeholder="Tên đăng nhập" name="user">
+                <input type="password" placeholder="mật khẩu" name="password">
+                <button type="submit">Đăng nhập</button>
+            }
+        </section>
+        <section class="overlay-container">
+            <article class="overlay">
+                <a href="~/TrangChu/TrangChu">X</a>
+                <div class="overlay-panel overlay-left">
+                    <h1 class="title">Chào <br> bạn</h1>
+                    <p>Nếu bạn đã có tài khoản, vui lòng đăng nhập ở đây.</p>
+                    <button class="ghost" id="login">Đăng nhập</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="title">Bắt đầu<br> trải nghiệm ngay</h1>
+                    <p>Nếu bạn chưa có tài khoản, vui lòng đăng ký ở đây.</p>
+                    <button class="ghost" id="register">Đăng ký</button>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+<script src="~/Public/JS/DangNhap.js"></script>
+</html>

@@ -1,0 +1,325 @@
+﻿@model DATT.Models.ThongTinChiTietSanPham
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    ViewBag.section = "manager";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<section class="background-black"></section>
+<div class="branch"></div>
+<div class="name-product">
+    <h2>@Model.TEN_SAN_PHAM</h2>
+    <p>@Model.THONG_TIN_TONG_QUAT</p>
+</div>
+<main>
+    <section class="product-content">
+        <article>
+            <div class="img-product">
+                <img src="~/Public/Images/ImagesProduct/@Model.ANH" alt="">
+            </div>
+            <div>
+                <div class="price">
+                    <p>@string.Format("{0:#,0}", Model.GIA) ₫</p>
+                    <p>@string.Format("{0:#,0}", Model.GIAM_GIA)</p>
+                </div>
+                <div class="promotion">
+                    <h3><i class="fa-solid fa-gift"></i> Khuyến mãi</h3>
+                    <p>Thu cũ lên đời - Giá thu tốt nhất - Tặng thêm 3 triệu khi lên đời</p>
+                    <p>Phần Mềm Diệt Virus, Office chính hãng chỉ từ 150k</p>
+                </div>
+                <div class="buy-now">
+                    <a href="~/GioHang/AddGioHang?id=@Model.ID_SP&&MN=true">
+                        <p>Mua ngay</p>
+                        <p>(Giao nhanh từ 2 giờ hoặc nhận tại cửa hàng)</p>
+                    </a>
+                    <a href="~/GioHang/AddGioHang?id=@Model.ID_SP">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>Thêm vào giỏ hàng</p>
+                        @{ if (Session["IDAcc"] == null)
+                            {
+                                Session["IDAcc"] = 0;
+                            }
+
+                        }
+                    </a>
+                </div>
+            </div>
+        </article>
+        <aside>
+            <h3>Thông tin sản phẩm</h3>
+            <p>
+                Nguyên hộp, đầy đủ phụ kiện từ nhà sản suất
+                Bảo hành pin 12 tháng
+            </p>
+            <p>Máy, sạc, sách hướng dẫn sử dụng</p>
+            <p>
+                Bảo hành 24 tháng tại trung tâm bảo hành Chính hãng. 1 đổi 1 trong 30 ngày nếu có lỗi phần cứng
+                từ
+                nhà sản xuất
+            </p>
+        </aside>
+    </section>
+    <section class="blog-review-aside">
+        <article>
+            <div class="product-blog">
+                @if (ViewBag.loadTT != null)
+                {
+                    <h1>@ViewBag.loadTT.TIEU_DE</h1>
+                    <img src="~/Public/Images/ImagesNews/@ViewBag.loadTT.ANH" />
+                    <p>
+                       @Html.Raw(ViewBag.loadTT.NOI_DUNG)
+                    </p>
+                }
+                <div class="more-blog">
+                </div>
+                <p id="more-blog">Xem thêm<i class="fa-solid fa-caret-down"></i></p>
+            </div>
+            <div class="product-reviews">
+                <h3>Đánh giá & nhận xét Laptop Asus Gaming Rog Strix G15 G513IH HN015W</h3>
+                <div class="scores">
+                    <div class="scores-left">
+                        <div>
+                            @if (@ViewBag.loadDDG != null)
+                            {
+                                <p> @ViewBag.loadDDG/5</p>}
+                            else
+                            { <p> Chưa có đánh giá </p>}
+                        </div>
+                        <div>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                        </div>
+                            <p>@ViewBag.loadSLDG đánh giá và nhận xét</p>
+                    </div>
+                    <div class="scores-right">
+                        <div>
+                            <p>5</p>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <div></div>
+                            <p>@ViewBag.loadSLDG</p>
+                            <p>đánh giá và nhận xét</p>
+                        </div>
+                        <div>
+                            <p>4</p>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <div></div>
+                            <p>đánh giá và nhận xét</p>
+                        </div>
+                        <div>
+                            <p>3</p>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <div></div>
+                            <p>đánh giá và nhận xét</p>
+                        </div>
+                        <div>
+                            <p>2</p>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <div></div>
+                            <p>đánh giá và nhận xét</p>
+                        </div>
+                        <div>
+                            <p>1</p>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <div></div>
+                            <p>đánh giá và nhận xét</p>
+                        </div>
+                    </div>
+                </div>
+                <p>Bạn đánh giá sao sản phẩm này</p>
+                @if (Int16.Parse(Session["IDAcc"].ToString()) == 0)
+                {
+                    <a href="~/DangNhap/DangNhap" id="evaluate">Đánh giá ngay</a>
+                }
+                else
+                {
+                    <form class="feedback" method="post">
+                        <input type="text" placeholder="Nội dung" name="ND" />
+                        <input type="number" placeholder="Điểm" name="D" max="5" min="1" />
+                        <button type="submit" class="btn">Đánh Giá</button>
+                    </form>
+                }
+                @foreach (var item in ViewBag.loadDG)
+                {
+                    <div class="comment">
+                        <p>@item.USERNAME</p>
+                        <p>
+                            @item.NOI_DUNG
+                        </p>
+                    </div>
+                }
+            </div>
+        </article>
+        <aside>
+            <h3>Thông số kỹ thuật</h3>
+            <div class="parameter">
+                <p>Loại card đồ họa</p>
+                <p>@Model.GPU</p>
+            </div>
+            <div class="parameter">
+                <p>Dung lượng RAM</p>
+                <p>@Model.RAM</p>
+            </div>
+            <div class="parameter">
+                <p>Số khe ram</p>
+                <p>@Model.SO_KHE_RAM</p>
+            </div>
+            <div class="parameter">
+                <p>Ổ cứng</p>
+                <p>@Model.BO_NHO</p>
+            </div>
+            <div class="parameter">
+                <p>Kích thước màn hình</p>
+                <p>
+                    @Model.KICH_THUOC_MAN_HINH
+                </p>
+            </div>
+            <div class="parameter">
+                <p>Công nghệ màn hình</p>
+                <p>@Model.CONG_NGHE_MAN_HINH</p>
+            </div>
+            <div class="parameter">
+                <p>Hệ điều hành</p>
+                <p>@Model.HE_DIEU_HANH</p>
+            </div>
+            <div class="parameter">
+                <p>Độ phân giải màn hình</p>
+                <p>@Model.DO_PHAN_GIAI</p>
+            </div>
+            <div class="parameter">
+                <p>Cổng giao tiếp</p>
+                <p>
+                    @Model.CONG
+                </p>
+            </div>
+            <div id="more-info-product">
+                <p>Xem thêm thông số <i class="fa-solid fa-caret-down"></i></p>
+            </div>
+        </aside>
+    </section>
+    <section class="info-product hidden">
+        <div id="title-info-product">
+            <i class="fa-solid fa-circle-xmark"></i>
+            <h2>Thông số kỹ thuật</h2>
+        </div>
+        <h3>Màn hình & đồ họa & camera</h3>
+        <article>
+            <div class="parameter">
+                <p>Kích thước màn hình</p>
+                <p>@Model.KICH_THUOC_MAN_HINH</p>
+            </div>
+            <div class="parameter">
+                <p>GPU</p>
+                <p>@Model.GPU</p>
+            </div>
+            <div class="parameter">
+                <p>Công nghệ màn hình</p>
+                <p>@Model.CONG_NGHE_MAN_HINH</p>
+            </div>
+            <div class="parameter">
+                <p>Độ phân giản</p>
+                <p>@Model.DO_PHAN_GIAI</p>
+            </div>
+            <div class="parameter">
+                <p>Tần số quét</p>
+                <p>@Model.TAN_SO_QUET</p>
+            </div>
+            <div class="parameter">
+                <p>camera trước</p>
+                <p>@Model.CAMERA_TRUOC</p>
+            </div>
+            <div class="parameter">
+                <p>camera sau</p>
+                <p>@Model.CAMERA_SAU</p>
+            </div>
+        </article>
+        <h3>Vi xử lý & RAM & lưu trữ</h3>
+        <article>
+            <div class="parameter">
+                <p>Chip</p>
+                <p>@Model.CHIP</p>
+            </div>
+            <div class="parameter">
+                <p>RAM</p>
+                <p>@Model.RAM</p>
+            </div>
+            <div class="parameter">
+                <p>Bộ nhớ</p>
+                <p>@Model.BO_NHO</p>
+            </div>
+            <div class="parameter">
+                <p>Số khe cấm RAM</p>
+                <p>@Model.SO_KHE_RAM</p>
+            </div>
+        </article>
+        <h3>Pin & Giao tiếp & kết nối</h3>
+        <article>
+            <div class="parameter">
+                <p>Pin</p>
+                <p>@Model.PIN</p>
+            </div>
+            <div class="parameter">
+                <p>Thẻ sim</p>
+                <p>@Model.THE_SIM</p>
+            </div>
+            <div class="parameter">
+                <p>Cổng kết nối</p>
+                <p>@Model.CONG</p>
+            </div>
+            <div class="parameter">
+                <p>Hộ trợ mạng</p>
+                <p>@Model.HO_TRO_MANG</p>
+            </div>
+            <div class="parameter">
+                <p>WIFI</p>
+                <p>@Model.WI_FI</p>
+            </div>
+            <div class="parameter">
+                <p>BLUETOOTH</p>
+                <p>@Model.BLUETOOTH</p>
+            </div>
+        </article>
+        <h3>Thiết kế & Trọng lượng</h3>
+        <article>
+            <div class="parameter">
+                <p>Kích thước</p>
+                <p>@Model.KICH_THUOC</p>
+            </div>
+            <div class="parameter">
+                <p>Trọng lượng</p>
+                <p>@Model.TRONG_LUONG</p>
+            </div>
+            <div class="parameter">
+                <p>Chất liệu</p>
+                <p>@Model.CHAT_LIEU</p>
+            </div>
+        </article>
+        <h3>Khác</h3>
+        <article>
+            <div class="parameter">
+                <p>Xuất xứ</p>
+                <p>@Model.XUAT_XU</p>
+            </div>
+            <div class="parameter">
+                <p>Hệ điều hành</p>
+                <p>@Model.HE_DIEU_HANH</p>
+            </div>
+            <div class="parameter">
+                <p>Cảm biến vân tay</p>
+                <p>@Model.CAM_BIEN_VAN_TAY</p>
+            </div>
+            <div class="parameter">
+                <p>Tính năng đặt biệt</p>
+                <p>@Model.TINH_NANG_DAC_BIET</p>
+            </div>
+            <div class="parameter">
+                <p>Thời điểm ra mắt</p>
+                <p>@Model.THOI_DIEM_RA_MAT</p>
+            </div>
+        </article>
+    </section>
+    <p id="scroll-top">Đầu trang</p>
+</main>>
+<script src="~/Public/JS/ChiTietSanPham.js"></script>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Public/CSS/style.css">
+    <link rel="stylesheet" href="~/Public/fontawesome-free-6.1.1-web/css/all.min.css">
+</head>
+<body onload="loading()">
+    <header>
+        <div class="logo">
+            <a href="~/TrangChu/TrangChu"><img src="~/Public/Images/ImagesPublic/logo.png" alt="Logo"></a>
+        </div>
+        <div class="search">
+            @using (Html.BeginForm("SanPham", "SanPham"))
+            {
+                <input type="text" placeholder="Tìm kiếm..." name="text">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            }
+        </div>
+        <div class="other">
+            <a href="~/GioHang/GioHang">
+                <div id="login">
+                    <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng @if (ViewBag.loadTGH != 0) { <p>@ViewBag.loadTGH sản phẩm</p>}
+                </div>
+            </a>
+            <a href="~/DangNhap/DangNhap">
+                <div id="login"><i class="fa-solid fa-user"></i> Đăng nhập </div>
+            </a>
+        </div>
+    </header>
+    @RenderBody()
+    <footer>
+        <div class="top-footer">
+            <div>
+                <h3>Tổng đài hỗ trợ miễn phí</h3>
+                <p>Gọi mua hàng xxxx.2097 (7h30 - 22h00)</p>
+                <p>Gọi khiếu nại xxxx.2063 (8h00 - 21h30)</p>
+                <p>Gọi bảo hành xxxx.2064 (8h00 - 21h00)</p>
+            </div>
+            <div>
+                <h3>Thông tin</h3>
+                <p>
+                    Công ty TNHH Thương Mại và Dịch Vụ Kỹ Thuật TechZone - GPĐKKD: 031xxx72372 cấp tại Sở KH & ĐT TP.
+                    HCM.
+                </p>
+                <p>
+                    <b>Địa chỉ văn phòng:</b> 3x0-3x2 Võ Văn Kiệt, Phường Cô Giang, Quận 1, Thành phố Hồ Chí Minh, Việt
+                    Nam
+                </p>
+                <p><b>Điện thoại:</b> 028.xxxx.9666.</p>
+                <p><b>Email:</b> TechZone@gmail.com</p>
+            </div>
+            <div>
+                <h3>Kết nối với TechZone</h3>
+                <ul class="social">
+                    <li><a href=""><i class="fa-brands fa-tiktok"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <p>©TechZone All rights reserved</p>
+        </div>
+    </footer>
+</body>
+<script src="~/Public/JS/MasterPage.js"></script>
+</html>

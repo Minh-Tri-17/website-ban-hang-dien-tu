@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DATT.DAL.BLOG>
+
+@{
+    ViewBag.Title = "Quản lý tin tức";
+    ViewBag.section = "manager";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<p>
+    <a href="@Url.Action("Create", "BLOGs")"><i class="fa-solid fa-plus"></i> Thêm</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tiêu đề
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Ảnh
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TIEU_DE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAN_PHAM.TEN_SAN_PHAM)
+            </td>
+
+            <td>
+                <img src="~/Public/Images/ImagesNews/@item.ANH" />
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "BLOGs", new { id = item.ID_DMB })"><i class="fa-solid fa-pen"></i></a>
+                <a href="@Url.Action("Details", "BLOGs", new { id = item.ID_DMB })"><i class="fa-solid fa-circle-info"></i></a>
+                <a href="@Url.Action("Delete", "BLOGs", new { id = item.ID_DMB })"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

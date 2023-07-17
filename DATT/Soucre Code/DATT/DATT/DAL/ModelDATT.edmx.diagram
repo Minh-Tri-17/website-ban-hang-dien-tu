@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5e3fce9fc5e14888bb2c1d300e44cfe8" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="DATTModel.CHI_NHANH" Width="1.5" PointX="3.75" PointY="6.375" />
+        <EntityTypeShape EntityType="DATTModel.KHACH_HANG" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="DATTModel.sysdiagram" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DATTModel.CHI_TIET_HOA_DON" Width="1.5" PointX="9" PointY="9.625" />
+        <AssociationConnector Association="DATTModel.FK_CHI_TIET_HOA_DON_CHI_NHANH" />
+        <AssociationConnector Association="DATTModel.FK_CHI_TIET_FK_KHACH__KHACH_HA" />
+        <EntityTypeShape EntityType="DATTModel.HOA_DON" Width="1.5" PointX="5.375" PointY="0.875" />
+        <AssociationConnector Association="DATTModel.FK_CHI_TIET_HOA_DON_HOA_DON" />
+        <EntityTypeShape EntityType="DATTModel.THONG_TIN_SAN_PHAM" Width="1.5" PointX="9" PointY="14.125" />
+        <EntityTypeShape EntityType="DATTModel.DANH_GIA" Width="1.5" PointX="12" PointY="11" />
+        <EntityTypeShape EntityType="DATTModel.SAN_PHAM" Width="1.5" PointX="6.75" PointY="11.125" />
+        <AssociationConnector Association="DATTModel.FK_CHI_TIET_HOA_DON_SAN_PHAM" />
+        <AssociationConnector Association="DATTModel.FK_DANH_GIA_SAN_PHAM" />
+        <AssociationConnector Association="DATTModel.FK_THONG_TIN_SAN_PHAM_SAN_PHAM" />
+        <EntityTypeShape EntityType="DATTModel.TAI_KHOAN" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="DATTModel.TIN_TUC" Width="1.5" PointX="9.375" PointY="5.75" />
+        <AssociationConnector Association="DATTModel.FK_CHI_TIET_FK_ACCOUN_ACCOUNT" />
+        <AssociationConnector Association="DATTModel.FK_DANH_GIA_ACCOUNT" />
+        <AssociationConnector Association="DATTModel.FK_BLOG_SAN_PHAM" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,60 @@
+﻿@model List<DATT.DAL.SAN_PHAM>
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="branch"></div>
+<main>
+    <h3>Chọn theo hãng</h3>
+    <section class="trademark-product-container">
+        @foreach (var item in ViewBag.loadTH)
+        {
+            <a href="~/SanPham/SanPham?TH=@item"><p class="trademark-product">@item</p></a>
+        }
+    </section>
+    <h3>Sắp xếp theo</h3>
+    <section class="sort-product-container">
+        <a href="~/SanPham/SanPham?SX=ASCE">
+            <p class="sort-product"><i class="fa-solid fa-arrow-up-wide-short"></i> Giá thấp - cao</p>
+        </a>
+        <a href="~/SanPham/SanPham?SX=DESC">
+            <p class="sort-product"><i class="fa-solid fa-arrow-down-wide-short"></i> Giá cao - thấp</p>
+        </a>
+        <a href="~/SanPham/SanPham?SX=SALE">
+            <p class="sort-product"><i class="fa-solid fa-percent"></i> Khuyến mãi hot</p>
+        </a>
+    </section>
+    <section class="product-container">
+        @foreach (var item in Model)
+        {
+            <a href="~/SanPham/ChiTietSanPham?id=@item.ID_SP" class="product">
+                <img src="~/Public/Images/ImagesProduct/@item.ANH" alt="ảnh">
+                <h3>@item.TEN_SAN_PHAM</h3>
+                <div>
+                    <p>@string.Format("{0:#,0}", item.GIA) ₫</p>
+                    <p>@string.Format("{0:#,0}", item.GIAM_GIA)</p>
+                </div>
+                <div>
+                    @foreach (var itemDG in ViewBag.loadDDG)
+                    {
+                        if (item.ID_SP == itemDG.ID_SP && itemDG.DIEM == 5 && itemDG.KIEM_TRA == "true")
+                        {
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                            <i class="fa-sharp fa-solid fa-star"></i>
+                        }
+                    }
+                </div>
+            </a>
+        }
+    </section>
+    <div>
+        <p id="more-product">Xem thêm 150 sản phẩm <i class="fa-solid fa-caret-down"></i></p>
+    </div>
+    <p id="scroll-top">Đầu trang</p>
+</main>
+<script src="~/Public/JS/SanPham.js"></script>
+
