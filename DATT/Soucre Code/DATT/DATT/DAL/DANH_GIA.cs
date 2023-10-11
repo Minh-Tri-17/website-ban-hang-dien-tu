@@ -21,7 +21,7 @@ namespace DATT.DAL
         public string KIEM_TRA { get; set; }
         public Nullable<int> ID_ACC { get; set; }
     
-        public virtual SAN_PHAM SAN_PHAM { get; set; }
         public virtual TAI_KHOAN TAI_KHOAN { get; set; }
+        public virtual SAN_PHAM SAN_PHAM { get; set; }
     }
 }

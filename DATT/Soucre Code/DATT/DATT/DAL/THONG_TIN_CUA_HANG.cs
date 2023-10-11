@@ -12,12 +12,11 @@ namespace DATT.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class THONG_TIN_CUA_HANG
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string TEN_CUA_HANG { get; set; }
+        public string FB { get; set; }
+        public string TIKTOK { get; set; }
+        public string YOUTUBE { get; set; }
     }
 }

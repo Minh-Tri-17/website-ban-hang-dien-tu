@@ -19,8 +19,8 @@ namespace DATT.DAL
         {
             this.CHI_TIET_HOA_DON = new HashSet<CHI_TIET_HOA_DON>();
             this.DANH_GIA = new HashSet<DANH_GIA>();
-            this.THONG_TIN_SAN_PHAM = new HashSet<THONG_TIN_SAN_PHAM>();
             this.TIN_TUC = new HashSet<TIN_TUC>();
+            this.THONG_TIN_SAN_PHAM = new HashSet<THONG_TIN_SAN_PHAM>();
         }
     
         public int ID_SP { get; set; }
@@ -38,8 +38,8 @@ namespace DATT.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DANH_GIA> DANH_GIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THONG_TIN_SAN_PHAM> THONG_TIN_SAN_PHAM { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TIN_TUC> TIN_TUC { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THONG_TIN_SAN_PHAM> THONG_TIN_SAN_PHAM { get; set; }
     }
 }

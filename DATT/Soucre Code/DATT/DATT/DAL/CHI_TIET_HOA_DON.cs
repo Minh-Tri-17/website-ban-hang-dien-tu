@@ -25,9 +25,9 @@ namespace DATT.DAL
         public string TRANG_THAI { get; set; }
     
         public virtual CHI_NHANH CHI_NHANH { get; set; }
+        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
         public virtual KHACH_HANG KHACH_HANG { get; set; }
         public virtual HOA_DON HOA_DON { get; set; }
         public virtual SAN_PHAM SAN_PHAM { get; set; }
-        public virtual TAI_KHOAN TAI_KHOAN { get; set; }
     }
 }

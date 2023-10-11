@@ -2597,10 +2597,10 @@
     <Compile Include="DAL\HOA_DON.cs">
       <DependentUpon>ModelDATT.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\sysdiagram.cs">
+    <Compile Include="DAL\TAI_KHOAN.cs">
       <DependentUpon>ModelDATT.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\TAI_KHOAN.cs">
+    <Compile Include="DAL\THONG_TIN_CUA_HANG.cs">
       <DependentUpon>ModelDATT.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\TIN_TUC.cs">

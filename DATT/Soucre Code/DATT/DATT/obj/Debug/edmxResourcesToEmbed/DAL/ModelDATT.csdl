@@ -1,194 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DATTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DATTEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="CHI_NHANH" EntityType="DATTModel.CHI_NHANH" />
-    <EntitySet Name="KHACH_HANG" EntityType="DATTModel.KHACH_HANG" />
     <FunctionImport Name="THEM_KHACH_VAO_HOA_DON">
       <Parameter Name="IDKH" Mode="In" Type="Int32" />
       <Parameter Name="IDAC" Mode="In" Type="Int32" />
     </FunctionImport>
-    <EntitySet Name="sysdiagrams" EntityType="DATTModel.sysdiagram" />
+    <FunctionImport Name="CAP_NHAT_GIAO_HANG">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DoanhThuDanhMuc" ReturnType="Collection(DATTModel.DoanhThuDanhMuc_Result1)" />
+    <FunctionImport Name="DoanhThuNgay" ReturnType="Collection(DATTModel.DoanhThuNgay_Result1)" />
+    <FunctionImport Name="DoanhThuThang" ReturnType="Collection(DATTModel.DoanhThuThang_Result1)" />
+    <FunctionImport Name="TAM_TINH" ReturnType="Collection(Int32)">
+      <Parameter Name="ACC" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="CHI_NHANH" EntityType="DATTModel.CHI_NHANH" />
     <EntitySet Name="CHI_TIET_HOA_DON" EntityType="DATTModel.CHI_TIET_HOA_DON" />
+    <EntitySet Name="DANH_GIAs" EntityType="DATTModel.DANH_GIA" />
+    <EntitySet Name="HOA_DON" EntityType="DATTModel.HOA_DON" />
+    <EntitySet Name="KHACH_HANG" EntityType="DATTModel.KHACH_HANG" />
+    <EntitySet Name="SAN_PHAM" EntityType="DATTModel.SAN_PHAM" />
+    <EntitySet Name="TAI_KHOAN" EntityType="DATTModel.TAI_KHOAN" />
+    <EntitySet Name="THONG_TIN_SAN_PHAM" EntityType="DATTModel.THONG_TIN_SAN_PHAM" />
+    <EntitySet Name="TIN_TUC" EntityType="DATTModel.TIN_TUC" />
+    <EntitySet Name="THONG_TIN_CUA_HANG" EntityType="DATTModel.THONG_TIN_CUA_HANG" />
     <AssociationSet Name="FK_CHI_TIET_HOA_DON_CHI_NHANH" Association="DATTModel.FK_CHI_TIET_HOA_DON_CHI_NHANH">
       <End Role="CHI_NHANH" EntitySet="CHI_NHANH" />
+      <End Role="CHI_TIET_HOA_DON" EntitySet="CHI_TIET_HOA_DON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHI_TIET_FK_ACCOUN_ACCOUNT" Association="DATTModel.FK_CHI_TIET_FK_ACCOUN_ACCOUNT">
+      <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
       <End Role="CHI_TIET_HOA_DON" EntitySet="CHI_TIET_HOA_DON" />
     </AssociationSet>
     <AssociationSet Name="FK_CHI_TIET_FK_KHACH__KHACH_HA" Association="DATTModel.FK_CHI_TIET_FK_KHACH__KHACH_HA">
       <End Role="KHACH_HANG" EntitySet="KHACH_HANG" />
       <End Role="CHI_TIET_HOA_DON" EntitySet="CHI_TIET_HOA_DON" />
     </AssociationSet>
-    <EntitySet Name="HOA_DON" EntityType="DATTModel.HOA_DON" />
     <AssociationSet Name="FK_CHI_TIET_HOA_DON_HOA_DON" Association="DATTModel.FK_CHI_TIET_HOA_DON_HOA_DON">
       <End Role="HOA_DON" EntitySet="HOA_DON" />
       <End Role="CHI_TIET_HOA_DON" EntitySet="CHI_TIET_HOA_DON" />
     </AssociationSet>
-    <FunctionImport Name="CAP_NHAT_GIAO_HANG">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <EntitySet Name="THONG_TIN_SAN_PHAM" EntityType="DATTModel.THONG_TIN_SAN_PHAM" />
-    <FunctionImport Name="DoanhThuDanhMuc" ReturnType="Collection(DATTModel.DoanhThuDanhMuc_Result1)" />
-    <FunctionImport Name="DoanhThuNgay" ReturnType="Collection(DATTModel.DoanhThuNgay_Result1)" />
-    <FunctionImport Name="DoanhThuThang" ReturnType="Collection(DATTModel.DoanhThuThang_Result1)" />
-    <EntitySet Name="DANH_GIAs" EntityType="DATTModel.DANH_GIA" />
-    <EntitySet Name="SAN_PHAM" EntityType="DATTModel.SAN_PHAM" />
     <AssociationSet Name="FK_CHI_TIET_HOA_DON_SAN_PHAM" Association="DATTModel.FK_CHI_TIET_HOA_DON_SAN_PHAM">
       <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
-      <End Role="CHI_TIET_HOA_DON" EntitySet="CHI_TIET_HOA_DON" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DANH_GIA_SAN_PHAM" Association="DATTModel.FK_DANH_GIA_SAN_PHAM">
-      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
-      <End Role="DANH_GIA" EntitySet="DANH_GIAs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_THONG_TIN_SAN_PHAM_SAN_PHAM" Association="DATTModel.FK_THONG_TIN_SAN_PHAM_SAN_PHAM">
-      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
-      <End Role="THONG_TIN_SAN_PHAM" EntitySet="THONG_TIN_SAN_PHAM" />
-    </AssociationSet>
-    <FunctionImport Name="TAM_TINH" ReturnType="Collection(Int32)">
-      <Parameter Name="ACC" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <EntitySet Name="TAI_KHOAN" EntityType="DATTModel.TAI_KHOAN" />
-    <EntitySet Name="TIN_TUC" EntityType="DATTModel.TIN_TUC" />
-    <AssociationSet Name="FK_CHI_TIET_FK_ACCOUN_ACCOUNT" Association="DATTModel.FK_CHI_TIET_FK_ACCOUN_ACCOUNT">
-      <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
       <End Role="CHI_TIET_HOA_DON" EntitySet="CHI_TIET_HOA_DON" />
     </AssociationSet>
     <AssociationSet Name="FK_DANH_GIA_ACCOUNT" Association="DATTModel.FK_DANH_GIA_ACCOUNT">
       <End Role="TAI_KHOAN" EntitySet="TAI_KHOAN" />
       <End Role="DANH_GIA" EntitySet="DANH_GIAs" />
     </AssociationSet>
+    <AssociationSet Name="FK_DANH_GIA_SAN_PHAM" Association="DATTModel.FK_DANH_GIA_SAN_PHAM">
+      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+      <End Role="DANH_GIA" EntitySet="DANH_GIAs" />
+    </AssociationSet>
     <AssociationSet Name="FK_BLOG_SAN_PHAM" Association="DATTModel.FK_BLOG_SAN_PHAM">
       <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
       <End Role="TIN_TUC" EntitySet="TIN_TUC" />
     </AssociationSet>
+    <AssociationSet Name="FK_THONG_TIN_SAN_PHAM_SAN_PHAM" Association="DATTModel.FK_THONG_TIN_SAN_PHAM_SAN_PHAM">
+      <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
+      <End Role="THONG_TIN_SAN_PHAM" EntitySet="THONG_TIN_SAN_PHAM" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="CHI_NHANH">
-    <Key>
-      <PropertyRef Name="ID_CN" />
-    </Key>
-    <Property Name="ID_CN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TEN_CHI_NHANH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DIA_CHI" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_CHI_NHANH" FromRole="CHI_NHANH" ToRole="CHI_TIET_HOA_DON" />
-  </EntityType>
-  <EntityType Name="KHACH_HANG">
-    <Key>
-      <PropertyRef Name="ID_KH" />
-    </Key>
-    <Property Name="ID_KH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TEN_KHACH_HANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DIA_CHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="DATTModel.FK_CHI_TIET_FK_KHACH__KHACH_HA" FromRole="KHACH_HANG" ToRole="CHI_TIET_HOA_DON" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="CHI_TIET_HOA_DON">
-    <Key>
-      <PropertyRef Name="ID_CTHD" />
-    </Key>
-    <Property Name="ID_CTHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ID_SP" Type="Int32" />
-    <Property Name="ID_KH" Type="Int32" />
-    <Property Name="ID_CN" Type="Int32" />
-    <Property Name="ID_ACC" Type="Int32" />
-    <Property Name="ID_HD" Type="Int32" />
-    <Property Name="SO_LUONG" Type="Int32" />
-    <Property Name="TONG_TIEN" Type="Int32" />
-    <Property Name="TRANG_THAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CHI_NHANH" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_CHI_NHANH" FromRole="CHI_TIET_HOA_DON" ToRole="CHI_NHANH" />
-    <NavigationProperty Name="KHACH_HANG" Relationship="DATTModel.FK_CHI_TIET_FK_KHACH__KHACH_HA" FromRole="CHI_TIET_HOA_DON" ToRole="KHACH_HANG" />
-    <NavigationProperty Name="HOA_DON" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_HOA_DON" FromRole="CHI_TIET_HOA_DON" ToRole="HOA_DON" />
-    <NavigationProperty Name="SAN_PHAM" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_SAN_PHAM" FromRole="CHI_TIET_HOA_DON" ToRole="SAN_PHAM" />
-    <NavigationProperty Name="TAI_KHOAN" Relationship="DATTModel.FK_CHI_TIET_FK_ACCOUN_ACCOUNT" FromRole="CHI_TIET_HOA_DON" ToRole="TAI_KHOAN" />
-  </EntityType>
-  <Association Name="FK_CHI_TIET_HOA_DON_CHI_NHANH">
-    <End Type="DATTModel.CHI_NHANH" Role="CHI_NHANH" Multiplicity="0..1" />
-    <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CHI_NHANH">
-        <PropertyRef Name="ID_CN" />
-      </Principal>
-      <Dependent Role="CHI_TIET_HOA_DON">
-        <PropertyRef Name="ID_CN" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CHI_TIET_FK_KHACH__KHACH_HA">
-    <End Type="DATTModel.KHACH_HANG" Role="KHACH_HANG" Multiplicity="0..1" />
-    <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="KHACH_HANG">
-        <PropertyRef Name="ID_KH" />
-      </Principal>
-      <Dependent Role="CHI_TIET_HOA_DON">
-        <PropertyRef Name="ID_KH" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="HOA_DON">
-    <Key>
-      <PropertyRef Name="ID_HD" />
-    </Key>
-    <Property Name="ID_HD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NGAY_XUAT" Type="DateTime" Precision="3" />
-    <Property Name="TRANG_THAI_GIAO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_HOA_DON" FromRole="HOA_DON" ToRole="CHI_TIET_HOA_DON" />
-  </EntityType>
-  <Association Name="FK_CHI_TIET_HOA_DON_HOA_DON">
-    <End Type="DATTModel.HOA_DON" Role="HOA_DON" Multiplicity="0..1" />
-    <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HOA_DON">
-        <PropertyRef Name="ID_HD" />
-      </Principal>
-      <Dependent Role="CHI_TIET_HOA_DON">
-        <PropertyRef Name="ID_HD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="THONG_TIN_SAN_PHAM">
-    <Key>
-      <PropertyRef Name="ID_TTSP" />
-    </Key>
-    <Property Name="ID_TTSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ID_SP" Type="Int32" />
-    <Property Name="XUAT_XU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KICH_THUOC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="CONG_NGHE_MAN_HINH" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="CAMERA_SAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CAMERA_TRUOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CHIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="RAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="BO_NHO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="THE_SIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="HE_DIEU_HANH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DO_PHAN_GIAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="TAN_SO_QUET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="GPU" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="CONG" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="HO_TRO_MANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="WI_FI" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
-    <Property Name="BLUETOOTH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KICH_THUOC_MAN_HINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="TRONG_LUONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CHAT_LIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CAM_BIEN_VAN_TAY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="TINH_NANG_DAC_BIET" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
-    <Property Name="SO_KHE_RAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="THOI_DIEM_RA_MAT" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="SAN_PHAM" Relationship="DATTModel.FK_THONG_TIN_SAN_PHAM_SAN_PHAM" FromRole="THONG_TIN_SAN_PHAM" ToRole="SAN_PHAM" />
-  </EntityType>
   <ComplexType Name="DoanhThuDanhMuc_Result">
     <Property Type="Int32" Name="Column1" Nullable="true" />
     <Property Type="String" Name="DANH_MUC" Nullable="true" MaxLength="50" />
@@ -213,6 +85,35 @@
     <Property Type="Int32" Name="THANG" Nullable="true" />
     <Property Type="Int32" Name="DANH_THU" Nullable="true" />
   </ComplexType>
+  <EntityType Name="CHI_NHANH">
+    <Key>
+      <PropertyRef Name="ID_CN" />
+    </Key>
+    <Property Name="ID_CN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_CHI_NHANH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIA_CHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_CHI_NHANH" FromRole="CHI_NHANH" ToRole="CHI_TIET_HOA_DON" />
+  </EntityType>
+  <EntityType Name="CHI_TIET_HOA_DON">
+    <Key>
+      <PropertyRef Name="ID_CTHD" />
+    </Key>
+    <Property Name="ID_CTHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_SP" Type="Int32" />
+    <Property Name="ID_KH" Type="Int32" />
+    <Property Name="ID_CN" Type="Int32" />
+    <Property Name="ID_ACC" Type="Int32" />
+    <Property Name="ID_HD" Type="Int32" />
+    <Property Name="SO_LUONG" Type="Int32" />
+    <Property Name="TONG_TIEN" Type="Int32" />
+    <Property Name="TRANG_THAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHI_NHANH" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_CHI_NHANH" FromRole="CHI_TIET_HOA_DON" ToRole="CHI_NHANH" />
+    <NavigationProperty Name="TAI_KHOAN" Relationship="DATTModel.FK_CHI_TIET_FK_ACCOUN_ACCOUNT" FromRole="CHI_TIET_HOA_DON" ToRole="TAI_KHOAN" />
+    <NavigationProperty Name="KHACH_HANG" Relationship="DATTModel.FK_CHI_TIET_FK_KHACH__KHACH_HA" FromRole="CHI_TIET_HOA_DON" ToRole="KHACH_HANG" />
+    <NavigationProperty Name="HOA_DON" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_HOA_DON" FromRole="CHI_TIET_HOA_DON" ToRole="HOA_DON" />
+    <NavigationProperty Name="SAN_PHAM" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_SAN_PHAM" FromRole="CHI_TIET_HOA_DON" ToRole="SAN_PHAM" />
+  </EntityType>
   <EntityType Name="DANH_GIA">
     <Key>
       <PropertyRef Name="ID_DG" />
@@ -223,8 +124,28 @@
     <Property Name="NOI_DUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="KIEM_TRA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ID_ACC" Type="Int32" />
-    <NavigationProperty Name="SAN_PHAM" Relationship="DATTModel.FK_DANH_GIA_SAN_PHAM" FromRole="DANH_GIA" ToRole="SAN_PHAM" />
     <NavigationProperty Name="TAI_KHOAN" Relationship="DATTModel.FK_DANH_GIA_ACCOUNT" FromRole="DANH_GIA" ToRole="TAI_KHOAN" />
+    <NavigationProperty Name="SAN_PHAM" Relationship="DATTModel.FK_DANH_GIA_SAN_PHAM" FromRole="DANH_GIA" ToRole="SAN_PHAM" />
+  </EntityType>
+  <EntityType Name="HOA_DON">
+    <Key>
+      <PropertyRef Name="ID_HD" />
+    </Key>
+    <Property Name="ID_HD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NGAY_XUAT" Type="DateTime" Precision="3" />
+    <Property Name="TRANG_THAI_GIAO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_HOA_DON" FromRole="HOA_DON" ToRole="CHI_TIET_HOA_DON" />
+  </EntityType>
+  <EntityType Name="KHACH_HANG">
+    <Key>
+      <PropertyRef Name="ID_KH" />
+    </Key>
+    <Property Name="ID_KH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TEN_KHACH_HANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DIA_CHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="DATTModel.FK_CHI_TIET_FK_KHACH__KHACH_HA" FromRole="KHACH_HANG" ToRole="CHI_TIET_HOA_DON" />
   </EntityType>
   <EntityType Name="SAN_PHAM">
     <Key>
@@ -241,45 +162,9 @@
     <Property Name="SO_LUONG_TON" Type="Int32" />
     <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="DATTModel.FK_CHI_TIET_HOA_DON_SAN_PHAM" FromRole="SAN_PHAM" ToRole="CHI_TIET_HOA_DON" />
     <NavigationProperty Name="DANH_GIA" Relationship="DATTModel.FK_DANH_GIA_SAN_PHAM" FromRole="SAN_PHAM" ToRole="DANH_GIA" />
-    <NavigationProperty Name="THONG_TIN_SAN_PHAM" Relationship="DATTModel.FK_THONG_TIN_SAN_PHAM_SAN_PHAM" FromRole="SAN_PHAM" ToRole="THONG_TIN_SAN_PHAM" />
     <NavigationProperty Name="TIN_TUC" Relationship="DATTModel.FK_BLOG_SAN_PHAM" FromRole="SAN_PHAM" ToRole="TIN_TUC" />
+    <NavigationProperty Name="THONG_TIN_SAN_PHAM" Relationship="DATTModel.FK_THONG_TIN_SAN_PHAM_SAN_PHAM" FromRole="SAN_PHAM" ToRole="THONG_TIN_SAN_PHAM" />
   </EntityType>
-  <Association Name="FK_CHI_TIET_HOA_DON_SAN_PHAM">
-    <End Type="DATTModel.SAN_PHAM" Role="SAN_PHAM" Multiplicity="0..1" />
-    <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SAN_PHAM">
-        <PropertyRef Name="ID_SP" />
-      </Principal>
-      <Dependent Role="CHI_TIET_HOA_DON">
-        <PropertyRef Name="ID_SP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DANH_GIA_SAN_PHAM">
-    <End Type="DATTModel.SAN_PHAM" Role="SAN_PHAM" Multiplicity="0..1" />
-    <End Type="DATTModel.DANH_GIA" Role="DANH_GIA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SAN_PHAM">
-        <PropertyRef Name="ID_SP" />
-      </Principal>
-      <Dependent Role="DANH_GIA">
-        <PropertyRef Name="ID_SP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_THONG_TIN_SAN_PHAM_SAN_PHAM">
-    <End Type="DATTModel.SAN_PHAM" Role="SAN_PHAM" Multiplicity="0..1" />
-    <End Type="DATTModel.THONG_TIN_SAN_PHAM" Role="THONG_TIN_SAN_PHAM" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SAN_PHAM">
-        <PropertyRef Name="ID_SP" />
-      </Principal>
-      <Dependent Role="THONG_TIN_SAN_PHAM">
-        <PropertyRef Name="ID_SP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="TAI_KHOAN">
     <Key>
       <PropertyRef Name="ID_ACC" />
@@ -290,6 +175,39 @@
     <Property Name="QUYEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CHI_TIET_HOA_DON" Relationship="DATTModel.FK_CHI_TIET_FK_ACCOUN_ACCOUNT" FromRole="TAI_KHOAN" ToRole="CHI_TIET_HOA_DON" />
     <NavigationProperty Name="DANH_GIA" Relationship="DATTModel.FK_DANH_GIA_ACCOUNT" FromRole="TAI_KHOAN" ToRole="DANH_GIA" />
+  </EntityType>
+  <EntityType Name="THONG_TIN_SAN_PHAM">
+    <Key>
+      <PropertyRef Name="ID_TTSP" />
+    </Key>
+    <Property Name="ID_TTSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_SP" Type="Int32" />
+    <Property Name="XUAT_XU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KICH_THUOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CONG_NGHE_MAN_HINH" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CAMERA_SAU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CAMERA_TRUOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CHIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BO_NHO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="THE_SIM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HE_DIEU_HANH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DO_PHAN_GIAI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TAN_SO_QUET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GPU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CONG" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HO_TRO_MANG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WI_FI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BLUETOOTH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KICH_THUOC_MAN_HINH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TRONG_LUONG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CHAT_LIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CAM_BIEN_VAN_TAY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TINH_NANG_DAC_BIET" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="SO_KHE_RAM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="THOI_DIEM_RA_MAT" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="SAN_PHAM" Relationship="DATTModel.FK_THONG_TIN_SAN_PHAM_SAN_PHAM" FromRole="THONG_TIN_SAN_PHAM" ToRole="SAN_PHAM" />
   </EntityType>
   <EntityType Name="TIN_TUC">
     <Key>
@@ -302,6 +220,27 @@
     <Property Name="NOI_DUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="SAN_PHAM" Relationship="DATTModel.FK_BLOG_SAN_PHAM" FromRole="TIN_TUC" ToRole="SAN_PHAM" />
   </EntityType>
+  <EntityType Name="THONG_TIN_CUA_HANG">
+    <Key>
+      <PropertyRef Name="TEN_CUA_HANG" />
+    </Key>
+    <Property Name="TEN_CUA_HANG" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FB" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TIKTOK" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="YOUTUBE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_CHI_TIET_HOA_DON_CHI_NHANH">
+    <End Type="DATTModel.CHI_NHANH" Role="CHI_NHANH" Multiplicity="0..1" />
+    <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHI_NHANH">
+        <PropertyRef Name="ID_CN" />
+      </Principal>
+      <Dependent Role="CHI_TIET_HOA_DON">
+        <PropertyRef Name="ID_CN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_CHI_TIET_FK_ACCOUN_ACCOUNT">
     <End Type="DATTModel.TAI_KHOAN" Role="TAI_KHOAN" Multiplicity="0..1" />
     <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
@@ -311,6 +250,42 @@
       </Principal>
       <Dependent Role="CHI_TIET_HOA_DON">
         <PropertyRef Name="ID_ACC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHI_TIET_FK_KHACH__KHACH_HA">
+    <End Type="DATTModel.KHACH_HANG" Role="KHACH_HANG" Multiplicity="0..1" />
+    <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACH_HANG">
+        <PropertyRef Name="ID_KH" />
+      </Principal>
+      <Dependent Role="CHI_TIET_HOA_DON">
+        <PropertyRef Name="ID_KH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHI_TIET_HOA_DON_HOA_DON">
+    <End Type="DATTModel.HOA_DON" Role="HOA_DON" Multiplicity="0..1" />
+    <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOA_DON">
+        <PropertyRef Name="ID_HD" />
+      </Principal>
+      <Dependent Role="CHI_TIET_HOA_DON">
+        <PropertyRef Name="ID_HD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHI_TIET_HOA_DON_SAN_PHAM">
+    <End Type="DATTModel.SAN_PHAM" Role="SAN_PHAM" Multiplicity="0..1" />
+    <End Type="DATTModel.CHI_TIET_HOA_DON" Role="CHI_TIET_HOA_DON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAN_PHAM">
+        <PropertyRef Name="ID_SP" />
+      </Principal>
+      <Dependent Role="CHI_TIET_HOA_DON">
+        <PropertyRef Name="ID_SP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -326,6 +301,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_DANH_GIA_SAN_PHAM">
+    <End Type="DATTModel.SAN_PHAM" Role="SAN_PHAM" Multiplicity="0..1" />
+    <End Type="DATTModel.DANH_GIA" Role="DANH_GIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAN_PHAM">
+        <PropertyRef Name="ID_SP" />
+      </Principal>
+      <Dependent Role="DANH_GIA">
+        <PropertyRef Name="ID_SP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_BLOG_SAN_PHAM">
     <End Type="DATTModel.SAN_PHAM" Role="SAN_PHAM" Multiplicity="0..1" />
     <End Type="DATTModel.TIN_TUC" Role="TIN_TUC" Multiplicity="*" />
@@ -334,6 +321,18 @@
         <PropertyRef Name="ID_SP" />
       </Principal>
       <Dependent Role="TIN_TUC">
+        <PropertyRef Name="ID_SP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONG_TIN_SAN_PHAM_SAN_PHAM">
+    <End Type="DATTModel.SAN_PHAM" Role="SAN_PHAM" Multiplicity="0..1" />
+    <End Type="DATTModel.THONG_TIN_SAN_PHAM" Role="THONG_TIN_SAN_PHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SAN_PHAM">
+        <PropertyRef Name="ID_SP" />
+      </Principal>
+      <Dependent Role="THONG_TIN_SAN_PHAM">
         <PropertyRef Name="ID_SP" />
       </Dependent>
     </ReferentialConstraint>

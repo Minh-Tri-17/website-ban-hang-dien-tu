@@ -6,7 +6,7 @@
     </Key>
     <Property Name="ID_CN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TEN_CHI_NHANH" Type="nvarchar" MaxLength="50" />
-    <Property Name="DIA_CHI" Type="nvarchar" MaxLength="300" />
+    <Property Name="DIA_CHI" Type="nvarchar" MaxLength="100" />
     <Property Name="SDT" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="CHI_TIET_HOA_DON">
@@ -66,16 +66,6 @@
     <Property Name="GIAM_GIA" Type="int" />
     <Property Name="SO_LUONG_TON" Type="int" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="TAI_KHOAN">
     <Key>
       <PropertyRef Name="ID_ACC" />
@@ -85,6 +75,17 @@
     <Property Name="MAT_KHAU" Type="nvarchar" MaxLength="50" />
     <Property Name="QUYEN" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DATT.dbo.THONG_TIN_CUA_HANG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="THONG_TIN_CUA_HANG">
+    <Key>
+      <PropertyRef Name="TEN_CUA_HANG" />
+    </Key>
+    <Property Name="TEN_CUA_HANG" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FB" Type="nvarchar" MaxLength="150" />
+    <Property Name="TIKTOK" Type="nvarchar" MaxLength="150" />
+    <Property Name="YOUTUBE" Type="nvarchar" MaxLength="150" />
+  </EntityType>
   <EntityType Name="THONG_TIN_SAN_PHAM">
     <Key>
       <PropertyRef Name="ID_TTSP" />
@@ -92,7 +93,7 @@
     <Property Name="ID_TTSP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_SP" Type="int" />
     <Property Name="XUAT_XU" Type="nvarchar" MaxLength="50" />
-    <Property Name="KICH_THUOC" Type="nvarchar" MaxLength="100" />
+    <Property Name="KICH_THUOC" Type="nvarchar" MaxLength="50" />
     <Property Name="CONG_NGHE_MAN_HINH" Type="nvarchar" MaxLength="150" />
     <Property Name="CAMERA_SAU" Type="nvarchar" MaxLength="50" />
     <Property Name="CAMERA_TRUOC" Type="nvarchar" MaxLength="50" />
@@ -104,10 +105,10 @@
     <Property Name="HE_DIEU_HANH" Type="nvarchar" MaxLength="50" />
     <Property Name="DO_PHAN_GIAI" Type="nvarchar" MaxLength="50" />
     <Property Name="TAN_SO_QUET" Type="nvarchar" MaxLength="50" />
-    <Property Name="GPU" Type="nvarchar" MaxLength="100" />
-    <Property Name="CONG" Type="nvarchar" MaxLength="500" />
+    <Property Name="GPU" Type="nvarchar" MaxLength="50" />
+    <Property Name="CONG" Type="nvarchar" MaxLength="250" />
     <Property Name="HO_TRO_MANG" Type="nvarchar" MaxLength="50" />
-    <Property Name="WI_FI" Type="nvarchar" MaxLength="350" />
+    <Property Name="WI_FI" Type="nvarchar" MaxLength="50" />
     <Property Name="BLUETOOTH" Type="nvarchar" MaxLength="50" />
     <Property Name="KICH_THUOC_MAN_HINH" Type="nvarchar" MaxLength="50" />
     <Property Name="TRONG_LUONG" Type="nvarchar" MaxLength="50" />
@@ -255,10 +256,17 @@
     <EntitySet Name="HOA_DON" EntityType="Self.HOA_DON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHACH_HANG" EntityType="Self.KHACH_HANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SAN_PHAM" EntityType="Self.SAN_PHAM" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TAI_KHOAN" EntityType="Self.TAI_KHOAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THONG_TIN_SAN_PHAM" EntityType="Self.THONG_TIN_SAN_PHAM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIN_TUC" EntityType="Self.TIN_TUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THONG_TIN_CUA_HANG" EntityType="Self.THONG_TIN_CUA_HANG" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [THONG_TIN_CUA_HANG].[TEN_CUA_HANG] AS [TEN_CUA_HANG], 
+    [THONG_TIN_CUA_HANG].[FB] AS [FB], 
+    [THONG_TIN_CUA_HANG].[TIKTOK] AS [TIKTOK], 
+    [THONG_TIN_CUA_HANG].[YOUTUBE] AS [YOUTUBE]
+    FROM [dbo].[THONG_TIN_CUA_HANG] AS [THONG_TIN_CUA_HANG]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_BLOG_SAN_PHAM" Association="Self.FK_BLOG_SAN_PHAM">
       <End Role="SAN_PHAM" EntitySet="SAN_PHAM" />
       <End Role="TIN_TUC" EntitySet="TIN_TUC" />

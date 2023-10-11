@@ -28,15 +28,15 @@ namespace DATT.DAL
         }
     
         public virtual DbSet<CHI_NHANH> CHI_NHANH { get; set; }
-        public virtual DbSet<KHACH_HANG> KHACH_HANG { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<CHI_TIET_HOA_DON> CHI_TIET_HOA_DON { get; set; }
-        public virtual DbSet<HOA_DON> HOA_DON { get; set; }
-        public virtual DbSet<THONG_TIN_SAN_PHAM> THONG_TIN_SAN_PHAM { get; set; }
         public virtual DbSet<DANH_GIA> DANH_GIAs { get; set; }
+        public virtual DbSet<HOA_DON> HOA_DON { get; set; }
+        public virtual DbSet<KHACH_HANG> KHACH_HANG { get; set; }
         public virtual DbSet<SAN_PHAM> SAN_PHAM { get; set; }
         public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
+        public virtual DbSet<THONG_TIN_SAN_PHAM> THONG_TIN_SAN_PHAM { get; set; }
         public virtual DbSet<TIN_TUC> TIN_TUC { get; set; }
+        public virtual DbSet<THONG_TIN_CUA_HANG> THONG_TIN_CUA_HANG { get; set; }
     
         public virtual int THEM_KHACH_VAO_HOA_DON(Nullable<int> iDKH, Nullable<int> iDAC)
         {
